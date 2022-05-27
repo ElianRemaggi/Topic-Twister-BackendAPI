@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Text.Json;
 
 namespace BackendAPI.Controllers
@@ -9,7 +10,7 @@ namespace BackendAPI.Controllers
     public class GetPlayerByIdController : ControllerBase
     {
         private static readonly Player[] Players = new[]
-{
+        {
         new Player(1,new PlayerData(1,"Luis")),
             new Player(2,new PlayerData(5,"Elian")),
             new Player(3,new PlayerData(8,"Jesus")),
@@ -23,7 +24,7 @@ namespace BackendAPI.Controllers
             {
                 if (player.UserID == id)
                 {
-                    return Ok(JsonSerializer.Serialize(player)); // Forma correcta de formatear JSON
+                    return Ok(JsonConvert.SerializeObject(player)); // Forma correcta de formatear JSON
                 }
             }
             return NotFound("No existe Usuario con id " + id);
