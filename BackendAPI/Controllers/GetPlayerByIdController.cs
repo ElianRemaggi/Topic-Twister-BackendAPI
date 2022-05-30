@@ -11,14 +11,14 @@ namespace BackendAPI.Controllers
     {
         private static readonly Player[] Players = new[]
         {
-        new Player(1,new PlayerData(1,"Luis")),
-            new Player(2,new PlayerData(5,"Elian")),
-            new Player(3,new PlayerData(8,"Jesus")),
-            new Player(4,new PlayerData(15,"Sebastian"))
+        new Player("lgarcia",new PlayerData(1,"Luis")),
+            new Player("eremaggi",new PlayerData(5,"Elian")),
+            new Player("yisus",new PlayerData(8,"Jesus")),
+            new Player("seba",new PlayerData(15,"Sebastian"))
          };
 
         [HttpGet("id")]
-        public IActionResult GetPlayerById(int id)
+        public IActionResult GetPlayerById(string id)
         {
             foreach (Player player in Players)
             {

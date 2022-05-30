@@ -3,17 +3,17 @@ using System.Collections.Generic;
 [System.Serializable]
 public class Player
 {
-    private int _userID;
+    private string _userID;
     private bool _lookingForMatch;
     private PlayerData _playerData;
 
-    public Player(int userID, PlayerData playerData)
+    public Player(string userID, PlayerData playerData)
     {
         _userID = userID;
         _playerData = playerData;
     }
 
-    public int UserID { get => _userID; }
+    public string UserID { get => _userID; }
     public bool LookingForMatch { get => _lookingForMatch; set => _lookingForMatch = value; }
     public PlayerData PlayerData { get => _playerData; set => _playerData = value; }
 
