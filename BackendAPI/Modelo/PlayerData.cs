@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 
-
 public class PlayerData
 {
     private int _winsAmount;
