@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 public class PlayerData
 {
@@ -15,6 +16,13 @@ public class PlayerData
     public PlayerData(int winsAmount, string name)
     {
         _winsAmount = winsAmount;
+        _name = name;
+    }
+
+    [JsonConstructor]
+    public PlayerData(int? winsAmount, string? name)
+    {
+        _winsAmount = (int)winsAmount;
         _name = name;
     }
 

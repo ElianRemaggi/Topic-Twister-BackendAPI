@@ -20,7 +20,7 @@ namespace BackendAPI.Controllers
         [HttpGet]
         public IActionResult GetAllPlayers()
         {
-
+            Console.WriteLine("Ingreso Get All Platyers");
             return Ok(JsonConvert.SerializeObject(Players)); // Forma correcta de formatear JSON
 
             return NotFound("Error ");
