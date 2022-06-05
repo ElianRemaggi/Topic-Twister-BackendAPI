@@ -15,14 +15,17 @@ namespace BackendAPI.Controllers
 
 
 
-        [HttpPut("{id}")]
-        public IActionResult Put(string id, string parametro)
+        [HttpPut]
+        public IActionResult Put(string id, object parametro)
         {
-
+            if (id == null)
+            {
+                Exception e = new Exception("PlayerDataController.Put(id,parametro) = Id null");
+            }
 
             try
             {
-                PlayerData playerData = JsonConvert.DeserializeObject<PlayerData>(parametro);
+                PlayerData playerData = JsonConvert.DeserializeObject<PlayerData>(parametro.ToString());
                 Console.WriteLine("id = " + id);
                 Console.WriteLine("PlayerData nombre " + playerData.Name);
 
