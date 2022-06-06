@@ -7,18 +7,10 @@ namespace BackendAPI.Controllers
     [ApiController]
     public class PlayerDataController : ControllerBase
     {
-        //[HttpPut("id")]
-        //public void putTest()
-        //{
-        //    Console.WriteLine("Put Test");
-        //}
-
-
-
         [HttpPut]
         public IActionResult Put(string id, object parametro)
         {
-            if (id == null)
+            if (id == null || id.Equals(""))
             {
                 Exception e = new Exception("PlayerDataController.Put(id,parametro) = Id null");
             }
@@ -41,7 +33,8 @@ namespace BackendAPI.Controllers
 
         }
 
-        /*[HttpPost("id")]
+        //este metodo no va, se usa el put
+        [HttpPost("id")]
         public void UpdatePlayerData(string playerDataSerialized)
         {
             Console.WriteLine(JsonConvert.DeserializeObject(playerDataSerialized).ToString());
@@ -49,6 +42,6 @@ namespace BackendAPI.Controllers
             PlayerData respuesta = JsonConvert.DeserializeObject<PlayerData>(playerDataSerialized);
 
             Console.WriteLine("Nombre = " + respuesta.Name + " con una cantidad de victorias de = " + respuesta.WinsAmount);
-        }*/
+        }
     }
 }
