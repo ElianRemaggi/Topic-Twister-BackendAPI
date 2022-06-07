@@ -10,6 +10,6 @@ public interface IPlayerRepository
     public List<Player> FindPlayersLookingForMatch();
     public void UpdatePlayerData(string playerId, PlayerData playerData);
     public void ClearPlayerRepository();
-    public void UpdateRepositoryData(List<Player> playerList);
+    public List<Player> GetAllPlayers();
 }
 
