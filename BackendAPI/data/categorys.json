@@ -1,0 +1,52 @@
+﻿[
+    {
+        "categoryID": 1,
+        "categoryName": "Países",
+        "wordList": [ "Alemania", "Argentina", "Angola", "España", "Etiopia", "Eslovaquia", "Japon", "Jamaica", "Jordania", "Oman", "Mexico", "Malasia", "Madagascar" ]
+    },
+    {
+        "categoryID": 2,
+        "categoryName": "Nombres",
+        "wordList": ["Alberto", "Alejandra", "Ana", "Elian", "Esteban", "Emilia", "Jesus", "Juana", "Jessica", "Omar", "Olivia", "Orlando", "Maria", "Manuel", "Marcos" ]
+    },
+    {
+        "categoryID": 3,
+        "categoryName": "Comidas",
+        "wordList": [ "Arroz", "Atun", "Almejas", "Ensalada", "Empanada", "Escabeche", "Jalapeño", "Jamon", "Jardinera", "Orejones", "Olivas", "Omelet", "Milanesa", "Mermelada", "Macarrones" ]
+    },
+    {
+        "categoryID": 4,
+        "categoryName": "Animales",
+        "wordList": [ "Araña", "Avestruz", "Aguila", "Escarabajo", "Elefante", "Escorpion", "Jabali", "Jaguar", "Jirafa", "Oruga", "Oso", "Orangutan", "Mamut", "Mono", "Marmota" ]
+    },
+    {
+        "categoryID": 5,
+        "categoryName": "Profesiones",
+        "wordList": [ "Arquitecto", "Albañil", "Agricultor", "Escribano", "Electricista", "Escritor", "Juez", "Jardinero", "Joyero", "Obrero", "Orfebre", "Odontologo", "Marinero", "Maquinista", "Mecanico" ]
+    },
+    {
+        "categoryID": 6,
+        "categoryName": "Dioses",
+        "wordList": [ "Afrodita", "Ares", "Anubis", "Eco", "Eris", "Eros", "Jupiter", "Jepeto", "Juno", "Osiris", "Orfeo", "Olimpo", "Marte", "Mercurio", "Minerva" ]
+    },
+    {
+        "categoryID": 7,
+        "categoryName": "Cosas",
+        "wordList": [ "Almanaque", "Arma", "Auto", "Escalera", "Escoba", "Espada", "Joya", "Jarra", "Jeringa", "Olla", "Oro", "Oreja", "Madera", "Mascara", "Muñeco" ]
+    },
+    {
+        "categoryID": 8,
+        "categoryName": "Deportes",
+        "wordList": [ "Alpinismo", "Atletismo", "Automovilismo", "Esgrima", "Esqui", "Escalada", "Judo", "Jujitsu", "Jabalina", "Olimpico", "Motociclismo", "Marcha" ]
+    },
+    {
+        "categoryID": 9,
+        "categoryName": "Frutas y Verduras",
+        "wordList": [ "Anana", "Arandano", "Acelga", "Espinaca", "Elote", "Esparragos", "Jengibre", "Judias", "Jitomate", "Oliva", "Oregano", "Ocra", "Manzana", "Mandarina", "Mora" ]
+    },
+    {
+        "categoryID": 10,
+        "categoryName": "Marcas",
+        "wordList": [ "Adidas", "Armani", "Axe", "Epson", "Easy", "Elephant", "Jaguar", "Jeep", "Jordan", "Oxea", "Odol", "Oreo", "Mitsubishi", "Michelin", "Minolta" ]
+    }
+]
