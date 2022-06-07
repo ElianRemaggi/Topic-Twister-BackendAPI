@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BackendAPI.Modelo.Repository;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace BackendAPI.Controllers
@@ -7,6 +8,22 @@ namespace BackendAPI.Controllers
     [ApiController]
     public class PlayerDataController : ControllerBase
     {
+
+        [HttpGet("id")]
+        public IActionResult GetPlayerDataByPlayerId(string id)
+        {
+            IPlayerRepository playerRepository = new PlayerRepository();
+            foreach (Player player in playerRepository.GetAllPlayers())
+            {
+                if (player.UserID == id)
+                {
+                    return Ok(JsonConvert.SerializeObject(player.PlayerData)); // Forma correcta de formatear JSON
+                }
+            }
+            return NotFound("No existe Usuario con id " + id);
+        }
+
+
         [HttpPut]
         public IActionResult Put(string id, object parametro)
         {
@@ -23,7 +40,7 @@ namespace BackendAPI.Controllers
 
                 //var respuesta = JsonConvert.DeserializeObject(player.ToString());
                 Console.WriteLine("go ok ");
-                return Ok(""); 
+                return Ok("");
             }
             catch (Exception e)
             {
@@ -33,15 +50,5 @@ namespace BackendAPI.Controllers
 
         }
 
-        //este metodo no va, se usa el put
-        [HttpPost("id")]
-        public void UpdatePlayerData(string playerDataSerialized)
-        {
-            Console.WriteLine(JsonConvert.DeserializeObject(playerDataSerialized).ToString());
-
-            PlayerData respuesta = JsonConvert.DeserializeObject<PlayerData>(playerDataSerialized);
-
-            Console.WriteLine("Nombre = " + respuesta.Name + " con una cantidad de victorias de = " + respuesta.WinsAmount);
-        }
     }
 }
