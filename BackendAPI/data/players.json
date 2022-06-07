@@ -1,0 +1,44 @@
+﻿[
+    {
+        "userID": "lgarcia",
+        "playerData": {
+            "winsAmount": 10,
+            "Name": "Luis"
+        }
+    },
+    {
+        "userID": "eremaggi",
+        "playerData": {
+            "winsAmount": 5,
+            "Name": "Elian"
+        }
+    },
+    {
+        "userID": "jesu",
+        "playerData": {
+            "winsAmount": 10,
+            "Name": "Jesus"
+        }
+    },
+    {
+        "userID": "seba",
+        "playerData": {
+            "winsAmount": 12,
+            "Name": "Sebastian!"
+        }
+    },
+    {
+        "userID": "random",
+        "playerData": {
+            "winsAmount": 11,
+            "Name": "DarkSlayer"
+        }
+    },
+    {
+        "userID": "ruben",
+        "playerData": {
+            "winsAmount": 9,
+            "Name": "Ruby"
+        }
+    }
+]
