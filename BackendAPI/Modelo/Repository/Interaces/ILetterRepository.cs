@@ -8,4 +8,5 @@ using System.Threading.Tasks;
 public interface ILetterRepository
 {
     public char GetRandomLetter();
+    public void LoadLetterRepository();
 }
