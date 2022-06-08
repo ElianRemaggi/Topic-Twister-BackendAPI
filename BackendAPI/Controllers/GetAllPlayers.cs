@@ -6,16 +6,16 @@ using System.Text.Json;
 
 namespace BackendAPI.Controllers
 {
-    [Route("GetPlayersLookingForMatch")]
+    [Route("GetAllPlayers")]
     [ApiController]
-    public class GetPlayersLookingForMatch : ControllerBase
+    public class GetAllPlayers : ControllerBase
     {
 
         [HttpGet]
-        public IActionResult GetAllPlayers()
+        public IActionResult GetAllPlayerss()
         {
             IPlayerRepository playerRepository = new PlayerRepository();
-            return Ok(JsonConvert.SerializeObject(playerRepository.FindPlayersLookingForMatch()));
+            return Ok(JsonConvert.SerializeObject(playerRepository.GetAllPlayers()));
             return NotFound("Error ");
         }
     }
