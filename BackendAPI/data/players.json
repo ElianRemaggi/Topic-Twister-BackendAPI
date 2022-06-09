@@ -2,14 +2,14 @@
     {
         "userID": "lgarcia",
         "playerData": {
-            "winsAmount": 10,
+            "winsAmount": 1,
             "Name": "Luis"
         }
     },
     {
         "userID": "eremaggi",
         "playerData": {
-            "winsAmount": 5,
+            "winsAmount": 4,
             "Name": "Elian"
         }
     },
