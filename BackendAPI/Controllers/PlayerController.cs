@@ -26,17 +26,12 @@ namespace BackendAPI.Controllers
     [ApiController]
     public class GetPlayerByIdController : ControllerBase
     {
-        private static readonly Player[] Players = new[]
-        {
-        new Player("lgarcia",new PlayerData(1,"Luis")),
-            new Player("eremaggi",new PlayerData(5,"Elian")),
-            new Player("yisus",new PlayerData(8,"Jesus")),
-            new Player("seba",new PlayerData(15,"Sebastian"))
-         };
-
         [HttpGet("id")]
         public IActionResult GetPlayerById(string id)
         {
+            IPlayerRepository playerRepository = new PlayerRepository();
+            List<Player> Players = playerRepository.GetAllPlayers();
+
             foreach (Player player in Players)
             {
                 if (player.UserID == id)
