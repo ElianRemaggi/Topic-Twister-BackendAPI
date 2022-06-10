@@ -13,7 +13,6 @@ namespace APITests
 
         }
 
-        // Un Player seteara verdadero en su variable _lookingForMatch si esta buscando una partida
         [Test]
         public static void Player_Should_Get_One_More_Win_If_Use_AddVictory_Method()
         {

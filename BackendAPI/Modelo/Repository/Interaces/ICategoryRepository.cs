@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 public interface ICategoryRepository 
 {
-    public Category FindCategoryById(string ID);
+    public Category FindCategoryById(int ID);
     public List<Category> LoadCategoryList();
     public int CategoryRepositoryLength();
 }
