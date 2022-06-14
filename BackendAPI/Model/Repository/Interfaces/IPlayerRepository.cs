@@ -9,7 +9,7 @@ public interface IPlayerRepository
     public Player FindPlayerById(string ID);
     public List<Player> FindPlayersLookingForMatch();
     public void UpdatePlayerData(string playerId, PlayerData playerData);
-    public void ClearPlayerRepository();
+    public void InitPlayerRepository();
     public List<Player> GetAllPlayers();
 }
 

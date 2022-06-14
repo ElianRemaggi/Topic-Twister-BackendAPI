@@ -1,6 +1,7 @@
 ﻿[
     {
-        "userID": "lgarcia",
+      "userID": "lgarcia",
+      "lookingForMatch" : true,
         "playerData": {
             "winsAmount": 1,
             "Name": "Luis"
@@ -8,6 +9,7 @@
     },
     {
         "userID": "eremaggi",
+        "lookingForMatch" : true,
         "playerData": {
             "winsAmount": 4,
             "Name": "Elian"
@@ -15,6 +17,7 @@
     },
     {
         "userID": "jesu",
+        "lookingForMatch" : true,
         "playerData": {
             "winsAmount": 10,
             "Name": "Jesus"
@@ -22,6 +25,7 @@
     },
     {
         "userID": "seba",
+        "lookingForMatch" : true,
         "playerData": {
             "winsAmount": 12,
             "Name": "Sebastian!"
@@ -29,6 +33,7 @@
     },
     {
         "userID": "random",
+        "lookingForMatch" : true,
         "playerData": {
             "winsAmount": 11,
             "Name": "DarkSlayer"
@@ -36,6 +41,7 @@
     },
     {
         "userID": "ruben",
+        "lookingForMatch" : true,
         "playerData": {
             "winsAmount": 9,
             "Name": "Ruby"

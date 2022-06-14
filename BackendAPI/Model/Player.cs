@@ -17,19 +17,4 @@ public class Player
     public string UserID { get => _userID; }
     public bool LookingForMatch { get => _lookingForMatch; set => _lookingForMatch = value; }
     public PlayerData PlayerData { get => _playerData; set => _playerData = value; }
-
-    public void AddVictory()
-    {
-        _playerData.WinsAmount++;
-    }
-
-    public void SetVictories(int victories)
-    {
-        _playerData.WinsAmount = victories;
-    }
-
-    public int GetVictories()
-    {
-        return _playerData.WinsAmount;
-    }
 }

@@ -8,10 +8,10 @@ namespace BackendAPI.Modelo.Repository
 
         public PlayerRepository()
         {
-            ClearPlayerRepository();
+            InitPlayerRepository();
         }
 
-        public void ClearPlayerRepository()
+        public void InitPlayerRepository()
         {
             string path = @"data\players.json";
             using (StreamReader jsonStream = File.OpenText(path))
@@ -38,9 +38,9 @@ namespace BackendAPI.Modelo.Repository
         {
             List<Player> playersLookingForMatch = new List<Player>();
 
-            foreach(var p in _playerList)
+            foreach(var player in _playerList)
             {
-                if (p.LookingForMatch) playersLookingForMatch.Add(p);
+                if (player.LookingForMatch) playersLookingForMatch.Add(player);
             }
 
             return playersLookingForMatch;

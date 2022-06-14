@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Modelo\UseCases\Player\" />
+    <Folder Include="Model\UseCases\Player\" />
   </ItemGroup>
 
 </Project>
