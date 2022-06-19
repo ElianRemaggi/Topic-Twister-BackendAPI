@@ -25,9 +25,28 @@ namespace APITests.Service
             string id = "eremaggi";
             ServiceProvider serviceProvider = new ServiceProvider();
             //Act
-            serviceProvider.GetPlayerById(id);
             //Assert
             Assert.IsInstanceOf(typeof(Player), serviceProvider.GetPlayerById(id));
+        }
+
+        [Test]
+        public void Service_Provider_Should_Be_Able_To_Return_A_Player_List_Looking_For_Match()
+        {
+            //Arrange
+            ServiceProvider serviceProvider = new ServiceProvider();
+            //Act
+            //Assert
+            Assert.IsInstanceOf(typeof(List<Player>), serviceProvider.FindPlayersLookingForMatch());
+        }
+
+        [Test]
+        public void Service_Provider_Should_Be_Able_To_Return_A_Player_List()
+        {
+            //Arrange
+            ServiceProvider serviceProvider = new ServiceProvider();
+            //Act
+            //Assert
+            Assert.IsInstanceOf(typeof(List<Player>), serviceProvider.GetAllPlayers());
         }
     }
 }
