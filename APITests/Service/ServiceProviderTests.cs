@@ -48,5 +48,15 @@ namespace APITests.Service
             //Assert
             Assert.IsInstanceOf(typeof(List<Player>), serviceProvider.GetAllPlayers());
         }
+
+        [Test]
+        public void Service_Provider_Should_Be_Able_To_Return_A_Random_Category_List()
+        {
+            //Arrange
+            ServiceProvider serviceProvider = new ServiceProvider();
+            //Act
+            //Assert
+            Assert.IsTrue(serviceProvider.GetRandomCategorys().Count > 0);
+        }
     }
 }
