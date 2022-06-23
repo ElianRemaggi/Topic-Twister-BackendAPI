@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using BackendAPI.Service;
+using Newtonsoft.Json;
 
 namespace BackendAPI.Modelo.Repository
 {
@@ -6,9 +7,9 @@ namespace BackendAPI.Modelo.Repository
     {
         public List<char> _charList;
 
-        public LetterRepository()
+        public LetterRepository(string path)
         {
-            LoadLetterRepository();
+            LoadLetterRepository(path);
         }
 
         public char GetRandomLetter()
@@ -17,9 +18,8 @@ namespace BackendAPI.Modelo.Repository
             return _charList.ElementAt(rand.Next(_charList.Count));
         }
 
-        public void LoadLetterRepository()
+        public void LoadLetterRepository(string path)
         {
-            string path = @"data\letters.json";
             using (StreamReader jsonStream = File.OpenText(path))
             {
                 var json = jsonStream.ReadToEnd();

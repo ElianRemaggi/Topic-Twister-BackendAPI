@@ -1,5 +1,6 @@
 ﻿using BackendAPI.Modelo.Repository;
 using BackendAPI.Modelo.UseCases;
+using BackendAPI.Service;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -15,7 +16,7 @@ namespace BackendAPI.Controllers
         {
             try { 
 
-            ILetterRepository letterRepository = new LetterRepository();
+            ILetterRepository letterRepository = new LetterRepository(PathProvider.GetLetterJsonPath());
 
             FindRandomLetterUseCase findRandomLetterUseCase = new FindRandomLetterUseCase(letterRepository);
 
