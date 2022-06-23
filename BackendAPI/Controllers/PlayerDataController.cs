@@ -27,19 +27,18 @@ namespace BackendAPI.Controllers
         [HttpPut]
         public IActionResult Put(string id, object parametro)
         {
-            if (id == null || id.Equals(""))
-            {
-                Exception e = new Exception("PlayerDataController.Put(id,parametro) = Id null");
-            }
-
             try
             {
-                PlayerData playerData = JsonConvert.DeserializeObject<PlayerData>(parametro.ToString());
-                Console.WriteLine("id = " + id);
-                Console.WriteLine("PlayerData nombre " + playerData.Name);
+                if (id == null || id.Equals(""))
+                {
+                    Exception e = new Exception("PlayerDataController.Put(id,parametro) = Id null");
+                }
 
+                PlayerData playerData = JsonConvert.DeserializeObject<PlayerData>(parametro.ToString());
+                IPlayerRepository playerRepository = new PlayerRepository();
+
+                playerRepository.UpdatePlayerData(id,playerData);
                 //var respuesta = JsonConvert.DeserializeObject(player.ToString());
-                Console.WriteLine("go ok ");
                 return Ok("");
             }
             catch (Exception e)

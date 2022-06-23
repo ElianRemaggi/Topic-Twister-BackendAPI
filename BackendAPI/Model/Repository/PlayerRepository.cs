@@ -53,7 +53,18 @@ namespace BackendAPI.Modelo.Repository
 
         public void UpdatePlayerData(string playerId, PlayerData playerData)
         {
+            try { 
             FindPlayerById(playerId).PlayerData = playerData;
+            string json = JsonConvert.SerializeObject(this._playerList);
+            string path = @"data\players.json";
+            System.IO.File.WriteAllText(path, json);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString()) ;
+                throw;
+            }
+
         }
 
     }
