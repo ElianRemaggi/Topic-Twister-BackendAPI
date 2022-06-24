@@ -13,5 +13,9 @@ namespace BackendAPI.Service
         {
             return @"data\categorys.json";
         }
+        public static string GetPlayersJsonPath()
+        {
+            return @"data\players.json";
+        }
     }
 }
