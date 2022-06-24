@@ -30,13 +30,13 @@ namespace BackendAPI.Service
 
         public List<Category> GetRandomCategorys()
         {
-            FindRandomCategoryListUseCase findRandomCategoryListUseCase = new FindRandomCategoryListUseCase(categoryRepository = new CategoryRepository());
+            FindRandomCategoryListUseCase findRandomCategoryListUseCase = new FindRandomCategoryListUseCase(categoryRepository = new CategoryRepository(PathProvider.GetCategoryJsonPath()));
             return findRandomCategoryListUseCase.Execute();
         }
 
         public Category FindCategoryById(int id)
         {
-            categoryRepository = new CategoryRepository();
+            categoryRepository = new CategoryRepository(PathProvider.GetCategoryJsonPath());
             return categoryRepository.FindCategoryById(id);
         }
     }

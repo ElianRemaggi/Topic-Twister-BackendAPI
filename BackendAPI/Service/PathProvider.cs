@@ -8,6 +8,10 @@ namespace BackendAPI.Service
         public static string GetLetterJsonPath()
         {
             return @"data\letters.json";
-        }       
+        }
+        public static string GetCategoryJsonPath()
+        {
+            return @"data\categorys.json";
+        }
     }
 }

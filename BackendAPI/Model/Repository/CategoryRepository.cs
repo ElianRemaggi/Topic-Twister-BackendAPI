@@ -6,13 +6,13 @@ namespace BackendAPI.Modelo.Repository
     {
         List<Category> _categorys = new List<Category>();
 
-        public CategoryRepository()
+        public CategoryRepository(string path)
         {
-            _categorys = LoadCategoryList();
+            _categorys = LoadCategoryList(path);
         }
-        public List<Category> LoadCategoryList()
+        public List<Category> LoadCategoryList(string path)
         {
-            string path = @"data\categorys.json";
+
             StreamReader jsonStream = File.OpenText(path);
 
             var json = jsonStream.ReadToEnd();

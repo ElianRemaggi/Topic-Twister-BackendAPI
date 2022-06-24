@@ -1,4 +1,6 @@
-﻿namespace BackendAPI.Modelo.UseCases
+﻿using BackendAPI.Service;
+
+namespace BackendAPI.Modelo.UseCases
 {
     public class FindRandomCategoryListUseCase
     {
@@ -13,7 +15,7 @@
 
             List<Category> randomCategories = new List<Category>();
 
-            List<Category> categoriesArray = _categoryRepository.LoadCategoryList();
+            List<Category> categoriesArray = _categoryRepository.LoadCategoryList(PathProvider.GetCategoryJsonPath());
 
             var random = new Random();
             for (int i = 0; i < 5; i++)

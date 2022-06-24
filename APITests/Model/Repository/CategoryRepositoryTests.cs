@@ -1,4 +1,5 @@
 using BackendAPI.Modelo.Repository;
+using BackendAPI.Service;
 using NSubstitute;
 using NUnit.Framework;
 using System;
@@ -19,7 +20,7 @@ namespace APITests
         {
             //Arrange
             ICategoryRepository categoryRepository;
-            categoryRepository = new CategoryRepository();
+            categoryRepository = new CategoryRepository(PathProvider.GetCategoryJsonPath());
             //Act
             //Assert
             Assert.IsNotNull(categoryRepository.CategoryRepositoryLength);
@@ -30,8 +31,8 @@ namespace APITests
         {
             //Arrange
             ICategoryRepository categoryRepository;
-            categoryRepository = new CategoryRepository();
-            List<Category> FullList = categoryRepository.LoadCategoryList();
+            categoryRepository = new CategoryRepository(PathProvider.GetCategoryJsonPath());
+            List<Category> FullList = categoryRepository.LoadCategoryList(PathProvider.GetCategoryJsonPath());
             //Act
             Category result = categoryRepository.FindCategoryById(4);
 
@@ -51,8 +52,8 @@ namespace APITests
         public static void GetCategoryById_should_return_a_Exception_if_wrong_id()
         {
             //Arrange
-            ICategoryRepository categoryRepository = new CategoryRepository();
-            List<Category> FullList = categoryRepository.LoadCategoryList();
+            ICategoryRepository categoryRepository = new CategoryRepository(PathProvider.GetCategoryJsonPath());
+            List<Category> FullList = categoryRepository.LoadCategoryList(PathProvider.GetCategoryJsonPath());
             //Act
             //Assert
             var exception = Assert.Throws<Exception>(() => categoryRepository.FindCategoryById(654));

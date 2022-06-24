@@ -1,5 +1,6 @@
 ﻿using BackendAPI.Modelo.Repository;
 using BackendAPI.Modelo.UseCases;
+using BackendAPI.Service;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -15,7 +16,7 @@ namespace BackendAPI.Controllers
         public IActionResult GetRandomCategories()
         {
 
-            ICategoryRepository categoryRepository = new CategoryRepository();
+            ICategoryRepository categoryRepository = new CategoryRepository(PathProvider.GetCategoryJsonPath());
 
             FindRandomCategoryListUseCase findRandomCategoryUseCase = new FindRandomCategoryListUseCase(categoryRepository);
 
