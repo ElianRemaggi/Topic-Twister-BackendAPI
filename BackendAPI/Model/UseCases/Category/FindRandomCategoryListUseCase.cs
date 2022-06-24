@@ -12,21 +12,26 @@ namespace BackendAPI.Modelo.UseCases
 
         public List<Category> Execute()
         {
-
-            List<Category> randomCategories = new List<Category>();
-
-            List<Category> categoriesArray = _categoryRepository.LoadCategoryList(PathProvider.GetCategoryJsonPath());
-
-            var random = new Random();
-            for (int i = 0; i < 5; i++)
+            try
             {
-                int randomIndex = random.Next(categoriesArray.Count);
-                Category randomCategory = categoriesArray.ElementAt(randomIndex);
+                List<Category> randomCategories = new List<Category>();
+                List<Category> categoriesArray = _categoryRepository.LoadCategoryList();
 
-                randomCategories.Add(randomCategory);
-                categoriesArray.Remove(randomCategory);
+                var random = new Random();
+                for (int i = 0; i < 5; i++)
+                {
+                    int randomIndex = random.Next(categoriesArray.Count);
+                    Category randomCategory = categoriesArray.ElementAt(randomIndex);
+
+                    randomCategories.Add(randomCategory);
+                    categoriesArray.Remove(randomCategory);
+                }
+                return randomCategories;
             }
-            return randomCategories;
+            catch (Exception e)
+            {
+                throw new Exception("Find Category List:" + e.Message);
+            }
 
         }
     }
