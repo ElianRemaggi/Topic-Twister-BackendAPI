@@ -10,19 +10,34 @@ namespace APITests.Controllers
     public class CategoryControllerTest
     {
         CategoryController categoryController;
+        ICategoryRepository categoryRepository;
+        private List<Category> _testCategories = new List<Category>();
+        private List<Category> _emptyCategories = new List<Category>();
+
 
         [SetUp]
         public void Setup()
         {
             categoryController = new CategoryController();
+            
+            categoryRepository = Substitute.For<ICategoryRepository>();
+
+            //Category Repository Mocking
+            Category testCategory = new Category(1, "TestCategory", new List<string>() { "Answer" });
+            _testCategories.Add(testCategory);
+            _testCategories.Add(testCategory);
+            _testCategories.Add(testCategory);
+            _testCategories.Add(testCategory);
+            _testCategories.Add(testCategory);
         }
 
         [Test]
         public void Get_Random_Categories_Should_Return_Ok_Status()
         {
             //Arrange
+            categoryRepository.LoadCategoryList().Returns(_testCategories);
             //Act
-            var result = categoryController.GetRandomCategories();
+            var result = categoryController.GetRandomCategories(categoryRepository);
             var okResult = result as OkObjectResult;
             //Assert
             Assert.IsNotNull(okResult);
@@ -34,8 +49,10 @@ namespace APITests.Controllers
         public void Get_Random_Categories_Should_Return_Bad_Status_If_Empty()
         {
             //Arrange
+            categoryRepository.LoadCategoryList().Returns(_emptyCategories);
+
             //Act
-            var result = categoryController.GetRandomCategories();
+            var result = categoryController.GetRandomCategories(categoryRepository);
             var notFoundResult = result as NotFoundObjectResult;
 
             //Assert

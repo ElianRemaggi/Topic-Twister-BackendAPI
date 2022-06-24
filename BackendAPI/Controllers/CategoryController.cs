@@ -11,20 +11,26 @@ namespace BackendAPI.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-
         [HttpGet]
-        public IActionResult GetRandomCategories()
+        public IActionResult GetRandomCategories([FromServices] ICategoryRepository categoryRepository)
         {
-
-            ICategoryRepository categoryRepository = new CategoryRepository(PathProvider.GetCategoryJsonPath());
+            if (categoryRepository == null)
+            {
+                categoryRepository = new CategoryRepository(PathProvider.GetCategoryJsonPath());
+            }
 
             FindRandomCategoryListUseCase findRandomCategoryUseCase = new FindRandomCategoryListUseCase(categoryRepository);
 
+            try
+            {
+                return Ok(JsonConvert.SerializeObject(findRandomCategoryUseCase.Execute()));
+            }
+            catch (Exception)
+            {
+                return NotFound("error categorys");
+            }
 
-            return Ok(JsonConvert.SerializeObject(findRandomCategoryUseCase.Execute())); 
 
-
-            return NotFound("error categorys");
         }
     }
 }

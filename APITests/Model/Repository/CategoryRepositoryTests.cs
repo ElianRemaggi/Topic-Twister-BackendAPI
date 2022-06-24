@@ -32,7 +32,7 @@ namespace APITests
             //Arrange
             ICategoryRepository categoryRepository;
             categoryRepository = new CategoryRepository(PathProvider.GetCategoryJsonPath());
-            List<Category> FullList = categoryRepository.LoadCategoryList(PathProvider.GetCategoryJsonPath());
+            List<Category> FullList = categoryRepository.LoadCategoryList();
             //Act
             Category result = categoryRepository.FindCategoryById(4);
 
@@ -53,7 +53,7 @@ namespace APITests
         {
             //Arrange
             ICategoryRepository categoryRepository = new CategoryRepository(PathProvider.GetCategoryJsonPath());
-            List<Category> FullList = categoryRepository.LoadCategoryList(PathProvider.GetCategoryJsonPath());
+            List<Category> FullList = categoryRepository.LoadCategoryList();
             //Act
             //Assert
             var exception = Assert.Throws<Exception>(() => categoryRepository.FindCategoryById(654));
