@@ -15,11 +15,18 @@ namespace BackendAPI.Controllers
         }
 
         [HttpGet("id")]
-        public IActionResult GetOpponentPlayer(string playerID)
+        public IActionResult FindOpponent(string playerID)
         {
-            MatchMaking matchMaking = new MatchMaking(_playerRepository);
-            return Ok(JsonConvert.SerializeObject(matchMaking.FindOpponent(playerID)));
-            return NotFound("Error ");
+            try
+            {
+                MatchMaking matchMaking = new MatchMaking(_playerRepository);
+                return Ok(JsonConvert.SerializeObject(matchMaking.FindOpponent(playerID)));
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return NotFound("Error ");
+            }
+
         }
     }
 }

@@ -8,18 +8,30 @@ namespace APITests
 {
     public class PlayerRepositoryTests
     {
-        // Cuando un player busca una partida, sera añadido a una lista de players que buscan partida
+        private IPlayerRepository _playerRepository;
 
-        //[Test]
-        //public void If_Player_Is_Looking_For_Match_Should_Be_Added_To_MatchMaking_List()
-        //{
-        //    //Arrange
-        //    MatchMaking matchMaking = new MatchMaking();
-        //    Player playerLookingForMatch = new Player("1", _playerData);
-        //    //Act
-        //    matchMaking.AddPlayerLookingForMatch(playerLookingForMatch);
-        //    //Assert
-        //    Assert.IsTrue(matchMaking.GetPlayersLookingForMatch().Contains(playerLookingForMatch));
-        //}
+        Player _playerOne = new Player("eremaggi", new PlayerData(1, "Elian"));
+        Player _playerTwo = new Player("lgarcia", new PlayerData(3, "Luis"));
+        Player _playerThree = new Player("pepito", new PlayerData(7, "Pepe"));
+        Player _playerFour = new Player("juan", new PlayerData(20, "Juan"));
+        Player _playerFive = new Player("jesus", new PlayerData(34, "Jesus"));
+        Player _playerSix = new Player("seba", new PlayerData(84, "Sebastian"));
+
+        [SetUp]
+        public void Setup()
+        {
+            _playerRepository = new PlayerRepository();
+        }
+        //
+
+        [Test]
+        public void If_Player_Is_Looking_For_Match_Should_Be_Return_True_Looking_For_Match()
+        {
+            //Arrange
+            //Act
+            _playerRepository.UpdatePlayerLookingForMatch(_playerOne.UserID);
+            //Assert
+            Assert.IsTrue(_playerRepository.FindPlayerById(_playerOne.UserID).LookingForMatch);
+        }
     }
 }

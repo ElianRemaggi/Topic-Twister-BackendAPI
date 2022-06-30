@@ -8,10 +8,10 @@ namespace BackendAPI.Modelo.Repository
 
         public PlayerRepository()
         {
-            InitPlayerRepository();
+            _playerList = GetPlayerRepository();
         }
 
-        public void InitPlayerRepository()
+        public List<Player> GetPlayerRepository()
         {
             string path = @"data\players.json";
             using (StreamReader jsonStream = File.OpenText(path))
@@ -19,7 +19,7 @@ namespace BackendAPI.Modelo.Repository
                 var json = jsonStream.ReadToEnd();
 
                 Player[] players = JsonConvert.DeserializeObject<Player[]>(json);
-                _playerList = players.ToList();
+                return players.ToList();
             }
         }
 
@@ -38,7 +38,9 @@ namespace BackendAPI.Modelo.Repository
         {
             List<Player> playersLookingForMatch = new List<Player>();
 
-            foreach(var player in _playerList)
+            _playerList = GetPlayerRepository();
+
+            foreach (var player in _playerList)
             {
                 if (player.LookingForMatch) playersLookingForMatch.Add(player);
             }
@@ -67,5 +69,22 @@ namespace BackendAPI.Modelo.Repository
 
         }
 
+        public void UpdatePlayerLookingForMatch(string playerID)
+        {
+            try
+            {
+                Player playerFound;
+                playerFound = _playerList.FirstOrDefault(q => q.UserID == playerID);
+                playerFound.LookingForMatch = true;
+                string json = JsonConvert.SerializeObject(this._playerList);
+                string path = @"data\players.json";
+                System.IO.File.WriteAllText(path, json);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                throw;
+            }
+        }
     }
 }
