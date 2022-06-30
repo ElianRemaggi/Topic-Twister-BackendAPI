@@ -27,7 +27,7 @@ public class MatchMaking
         {
             Player clientPlayer = _playerRepository.FindPlayerById(playerID);
             Player opponentPlayer;
-            _playerRepository.UpdatePlayerLookingForMatch(playerID);
+            _playerRepository.UpdatePlayerLookingForMatch(playerID, true);
 
             while (_currentTime<_timeout)
             {
@@ -41,6 +41,7 @@ public class MatchMaking
                 await Task.Delay(_timeStep);
             }
 
+            _playerRepository.UpdatePlayerLookingForMatch(playerID, false);
             throw new Exception("Opponent Not Found");
 
         }
@@ -52,10 +53,10 @@ public class MatchMaking
 
     private Player PlayerMatchup(Player clientPlayer)
     {
-        _playersLookingForMatch.Remove(clientPlayer);
+        _playersLookingForMatch.Remove(_playersLookingForMatch.Single(s => s.UserID == clientPlayer.UserID));
 
-        //if (_playersLookingForMatch.Count == 0)
-        //    throw new Exception("Opponent Not Found");
+        if (_playersLookingForMatch.Count == 0)
+            return null;
 
         foreach (var playerLooking in _playersLookingForMatch)
         {

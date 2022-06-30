@@ -122,7 +122,7 @@ namespace ModelTests
             await matchMaking.FindOpponent(_playerOne.UserID);
 
             //Assert
-            _playerRepository.Received().UpdatePlayerLookingForMatch(_playerOne.UserID);
+            _playerRepository.Received().UpdatePlayerLookingForMatch(_playerOne.UserID, true);
         }
 
         [Test]
@@ -131,7 +131,7 @@ namespace ModelTests
             //Arrange
             _playersLookingForMatch = new List<Player> { _playerOne};
             _playerRepository.FindPlayerById(_playerOne.UserID).Returns(_playerOne);
-            _playerRepository.FindPlayersLookingForMatch().Returns(_playersLookingForMatch);
+            _playerRepository.FindPlayersLookingForMatch().Returns(_playersLookingForMatch); //Este Returns funciona una sola vez, despues ya no funciona
             _playerRepository.GetPlayerRepository().Returns(_playersLookingForMatch);
             MatchMaking matchMaking = new MatchMaking(_playerRepository);
             //Act

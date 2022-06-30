@@ -69,13 +69,13 @@ namespace BackendAPI.Modelo.Repository
 
         }
 
-        public void UpdatePlayerLookingForMatch(string playerID)
+        public void UpdatePlayerLookingForMatch(string playerID, bool lookingForMatch)
         {
             try
             {
                 Player playerFound;
                 playerFound = _playerList.FirstOrDefault(q => q.UserID == playerID);
-                playerFound.LookingForMatch = true;
+                playerFound.LookingForMatch = lookingForMatch;
                 string json = JsonConvert.SerializeObject(this._playerList);
                 string path = @"data\players.json";
                 System.IO.File.WriteAllText(path, json);

@@ -11,6 +11,6 @@ public interface IPlayerRepository
     public void UpdatePlayerData(string playerId, PlayerData playerData);
     public List<Player> GetPlayerRepository();
     public List<Player> GetAllPlayers();
-    public void UpdatePlayerLookingForMatch(string playerID);
+    public void UpdatePlayerLookingForMatch(string playerID, bool lookingForMatch);
 }
 

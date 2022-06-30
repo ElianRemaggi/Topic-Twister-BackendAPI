@@ -29,7 +29,7 @@ namespace APITests
         {
             //Arrange
             //Act
-            _playerRepository.UpdatePlayerLookingForMatch(_playerOne.UserID);
+            _playerRepository.UpdatePlayerLookingForMatch(_playerOne.UserID, true);
             //Assert
             Assert.IsTrue(_playerRepository.FindPlayerById(_playerOne.UserID).LookingForMatch);
         }
