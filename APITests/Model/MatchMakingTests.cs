@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using NSubstitute;
+using System.Threading.Tasks;
 
 namespace ModelTests
 {
@@ -29,7 +30,7 @@ namespace ModelTests
         // deberia encontrar un oponente con +/- 5 victorias
 
         [Test]
-        public void If_Player_Looking_For_Match_Should_Find_Another_Player_With_5_Victories_Difference()
+        public async Task If_Player_Looking_For_Match_Should_Find_Another_Player_With_5_Victories_Difference()
         {
             //Arrange
             _playersLookingForMatch = new List<Player> { _playerOne, _playerTwo };
@@ -40,7 +41,7 @@ namespace ModelTests
             Player opponentPlayer;
 
             //Act 
-            opponentPlayer = matchMaking.FindOpponent(_playerOne.UserID);
+            opponentPlayer = await matchMaking.FindOpponent(_playerOne.UserID);
             
             //Assert
             Assert.AreEqual(_playerTwo, opponentPlayer);
@@ -51,7 +52,7 @@ namespace ModelTests
         // deberia encontrar un oponente con menos de 5 victorias
 
         [Test]
-        public void If_Previous_Test_Not_Met_Find_Another_Player_With_Less_Than_5_Victories_Than_The_Player()
+        public async Task If_Previous_Test_Not_Met_Find_Another_Player_With_Less_Than_5_Victories_Than_The_Player()
         {
             //Arrange
             _playersLookingForMatch = new List<Player> { _playerOne, _playerThree };
@@ -62,7 +63,7 @@ namespace ModelTests
             Player opponentPlayer;
 
             //Act
-            opponentPlayer = matchMaking.FindOpponent(_playerThree.UserID);
+            opponentPlayer = await matchMaking.FindOpponent(_playerThree.UserID);
 
             //Assert
             Assert.AreEqual(_playerOne, opponentPlayer);
@@ -72,7 +73,7 @@ namespace ModelTests
         // deberia encontrar un oponente al azar
 
         [Test]
-        public void If_Previous_Two_Tests_Not_Met_Find_Random_Player()
+        public async Task If_Previous_Two_Tests_Not_Met_Find_Random_Player()
         {
             //Arrange
             _playersLookingForMatch = new List<Player> { _playerOne, _playerThree, _playerFour, _playerFive, _playerSix };
@@ -85,7 +86,7 @@ namespace ModelTests
             Player opponentPlayer;
 
             //Act
-            opponentPlayer = matchMaking.FindOpponent(_playerOne.UserID);
+            opponentPlayer = await matchMaking.FindOpponent(_playerOne.UserID);
 
             //Assert
             Assert.Contains(opponentPlayer, expectedPlayers);
@@ -94,7 +95,7 @@ namespace ModelTests
         //Si no hay jugadores buscando una partida, devolver excepción
 
         [Test]
-        public void If_No_Players_Looking_For_Match_Cant_Find_Any_Opponent()
+        public async Task If_No_Players_Looking_For_Match_Cant_Find_Any_Opponent()
         {
             //Arrange
             _playersLookingForMatch = new List<Player> { _playerOne };
@@ -104,9 +105,39 @@ namespace ModelTests
             MatchMaking matchMaking = new MatchMaking(_playerRepository);
 
             //Act
+            //Assert
+            Assert.ThrowsAsync<Exception>(async () => await matchMaking.FindOpponent(_playerOne.UserID));
+            //Assert.That(async () => await userController.Get("foo"), Throws.InstanceOf<HttpResponseException>());
+        }
+
+        [Test]
+        public async Task When_Opponent_Looks_For_Match_Set_Looking_For_Match_True()
+        {
+            //Arrange
+            _playersLookingForMatch = new List<Player> { _playerOne , _playerTwo};
+            _playerRepository.FindPlayerById(_playerOne.UserID).Returns(_playerOne);
+            _playerRepository.FindPlayersLookingForMatch().Returns(new List<Player> {_playerSix, _playerFour });
+            MatchMaking matchMaking = new MatchMaking(_playerRepository);
+            //Act
+            await matchMaking.FindOpponent(_playerOne.UserID);
 
             //Assert
-            Assert.Throws<Exception>(() => matchMaking.FindOpponent(_playerOne.UserID));
+            _playerRepository.Received().UpdatePlayerLookingForMatch(_playerOne.UserID);
+        }
+
+        [Test]
+        public async Task When_Opponent_Looks_For_Match_And_Fails_Return_TimeOut()
+        {
+            //Arrange
+            _playersLookingForMatch = new List<Player> { _playerOne};
+            _playerRepository.FindPlayerById(_playerOne.UserID).Returns(_playerOne);
+            _playerRepository.FindPlayersLookingForMatch().Returns(_playersLookingForMatch);
+            _playerRepository.GetPlayerRepository().Returns(_playersLookingForMatch);
+            MatchMaking matchMaking = new MatchMaking(_playerRepository);
+            //Act
+            //Assert
+            var exception = Assert.ThrowsAsync<Exception>(async () => await matchMaking.FindOpponent(_playerOne.UserID));
+            Assert.AreEqual(exception.Message, "Opponent Not Found");
         }
     }
 }
