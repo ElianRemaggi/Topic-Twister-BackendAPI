@@ -15,12 +15,12 @@ namespace BackendAPI.Controllers
         }
 
         [HttpGet("id")]
-        public IActionResult FindOpponent(string playerID)
+        public async Task<IActionResult> FindOpponent(string playerID)
         {
             try
             {
                 MatchMaking matchMaking = new MatchMaking(_playerRepository);
-                return Ok(JsonConvert.SerializeObject(matchMaking.FindOpponent(playerID)));
+                return Ok(JsonConvert.SerializeObject(await matchMaking.FindOpponent(playerID)));
             }catch(Exception e)
             {
                 Console.WriteLine(e.Message);

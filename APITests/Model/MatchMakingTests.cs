@@ -139,5 +139,11 @@ namespace ModelTests
             var exception = Assert.ThrowsAsync<Exception>(async () => await matchMaking.FindOpponent(_playerOne.UserID));
             Assert.AreEqual(exception.Message, "Opponent Not Found");
         }
+
+        [Test]
+        public async Task When_Opponent_Fails_To_Find_Match_Set_Looking_For_Match_False()
+        {
+
+        }
     }
 }
