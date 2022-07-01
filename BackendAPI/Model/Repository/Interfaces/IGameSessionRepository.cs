@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 public interface IGameSessionRepository
 {
-    GameSession GetCurrentGameSession();
+    int GetLastSessionId();
+    void SaveGameSession(GameSession gameSession);
 
-    GameSession CreateNewGameSession(Player player1, Player player2);
 
 }
 

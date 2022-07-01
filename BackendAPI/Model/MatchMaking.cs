@@ -5,9 +5,8 @@ using System.Collections.Generic;
 
 public class MatchMaking
 {
-    private List<Player> _playersLookingForMatch = new List<Player>();
     private IPlayerRepository _playerRepository;
-    private int _timeout = 3000;
+    private int _timeout = 6000;
     private int _timeStep = 1500;
     private int _currentTime;
 
@@ -28,15 +27,20 @@ public class MatchMaking
             Player clientPlayer = _playerRepository.FindPlayerById(playerID);
             Player opponentPlayer;
             _playerRepository.UpdatePlayerLookingForMatch(playerID, true);
+            List<Player> playersLookingForMatch = new List<Player>();
+
 
             while (_currentTime<_timeout)
             {
-                _playersLookingForMatch = _playerRepository.FindPlayersLookingForMatch();
-                opponentPlayer = PlayerMatchup(clientPlayer);
+                playersLookingForMatch = _playerRepository.FindPlayersLookingForMatch();
+                opponentPlayer = PlayerMatchup(clientPlayer, playersLookingForMatch);
                 _currentTime += _timeStep;
 
                 if (opponentPlayer != null)
+                {
+                    //_playerRepository.UpdatePlayerLookingForMatch(playerID, false);
                     return opponentPlayer;
+                }
 
                 await Task.Delay(_timeStep);
             }
@@ -51,20 +55,23 @@ public class MatchMaking
         }
     }
 
-    private Player PlayerMatchup(Player clientPlayer)
+    private Player PlayerMatchup(Player clientPlayer, List<Player> playersLookingForMatch)
     {
-        _playersLookingForMatch.Remove(_playersLookingForMatch.Single(s => s.UserID == clientPlayer.UserID));
+        playersLookingForMatch.Remove(playersLookingForMatch.Single(s => s.UserID == clientPlayer.UserID));
 
-        if (_playersLookingForMatch.Count == 0)
+        if (playersLookingForMatch.Count == 0)
             return null;
 
-        foreach (var playerLooking in _playersLookingForMatch)
+        //if (_playersLookingForMatch.Count == 1 && _playersLookingForMatch[0].UserID == clientPlayer.UserID)
+        //    return null;
+
+        foreach (var playerLooking in playersLookingForMatch)
         {
             if (Math.Abs(clientPlayer.PlayerData.WinsAmount - playerLooking.PlayerData.WinsAmount) <= 5)
                 return playerLooking;
         }
 
-        foreach (var playerLooking in _playersLookingForMatch)
+        foreach (var playerLooking in playersLookingForMatch)
         {
             if (clientPlayer.PlayerData.WinsAmount > playerLooking.PlayerData.WinsAmount + 5)
                 return playerLooking;
@@ -72,8 +79,8 @@ public class MatchMaking
 
         Random rand = new Random();
 
-        if (_playersLookingForMatch.Count != 0)
-            return _playersLookingForMatch[rand.Next(0, _playersLookingForMatch.Count)];
+        if (playersLookingForMatch.Count != 0)
+            return playersLookingForMatch[rand.Next(0, playersLookingForMatch.Count)];
         else
             return null;
     }

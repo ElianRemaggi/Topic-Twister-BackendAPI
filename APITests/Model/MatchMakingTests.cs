@@ -92,6 +92,26 @@ namespace ModelTests
             Assert.Contains(opponentPlayer, expectedPlayers);
         }
 
+        [Test]
+        public async Task If_Match_Found_Put_Player_State_As_Not_Looking_For_Match()
+        {
+            //Arrange
+            _playersLookingForMatch = new List<Player> { _playerOne, _playerThree, _playerFour, _playerFive, _playerSix };
+            _playerRepository.FindPlayerById("eremaggi").Returns(_playerOne);
+            _playerRepository.FindPlayersLookingForMatch().Returns(_playersLookingForMatch);
+
+            List<Player> expectedPlayers = new List<Player> { _playerThree, _playerFour, _playerFive, _playerSix };
+
+            MatchMaking matchMaking = new MatchMaking(_playerRepository);
+            Player opponentPlayer;
+
+            //Act
+            opponentPlayer = await matchMaking.FindOpponent(_playerOne.UserID);
+
+            //Assert
+            _playerRepository.Received().UpdatePlayerLookingForMatch(_playerOne.UserID, false);
+        }
+
         //Si no hay jugadores buscando una partida, devolver excepción
 
         [Test]
@@ -116,13 +136,28 @@ namespace ModelTests
             //Arrange
             _playersLookingForMatch = new List<Player> { _playerOne , _playerTwo};
             _playerRepository.FindPlayerById(_playerOne.UserID).Returns(_playerOne);
-            _playerRepository.FindPlayersLookingForMatch().Returns(new List<Player> {_playerSix, _playerFour });
+            _playerRepository.FindPlayersLookingForMatch().Returns(new List<Player> { _playerOne, _playerSix, _playerFour });
             MatchMaking matchMaking = new MatchMaking(_playerRepository);
             //Act
             await matchMaking.FindOpponent(_playerOne.UserID);
 
             //Assert
             _playerRepository.Received().UpdatePlayerLookingForMatch(_playerOne.UserID, true);
+        }
+
+        [Test]
+        public async Task When_Opponent_Fails_To_Find_Match_Set_Looking_For_Match_False()
+        {
+            //Arrange
+            _playersLookingForMatch = new List<Player> { _playerOne };
+            _playerRepository.FindPlayerById(_playerOne.UserID).Returns(_playerOne);
+            _playerRepository.FindPlayersLookingForMatch().Returns(new List<Player> {_playerOne}); //Este Returns funciona una sola vez, despues ya no funciona
+            MatchMaking matchMaking = new MatchMaking(_playerRepository);
+            //Act
+            //Assert
+            var exception = Assert.ThrowsAsync<Exception>(async () => await matchMaking.FindOpponent(_playerOne.UserID));
+            Assert.AreEqual(exception.Message, "Opponent Not Found");
+            _playerRepository.Received().UpdatePlayerLookingForMatch(_playerOne.UserID, false);
         }
 
         [Test]
@@ -140,10 +175,6 @@ namespace ModelTests
             Assert.AreEqual(exception.Message, "Opponent Not Found");
         }
 
-        [Test]
-        public async Task When_Opponent_Fails_To_Find_Match_Set_Looking_For_Match_False()
-        {
 
-        }
     }
 }

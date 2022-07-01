@@ -26,7 +26,6 @@ namespace BackendAPI.Controllers
                 Console.WriteLine(e.Message);
                 return NotFound("Error ");
             }
-
         }
     }
 }

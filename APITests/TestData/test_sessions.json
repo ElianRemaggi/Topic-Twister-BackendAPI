@@ -1,0 +1,48 @@
+[
+  {
+    "SessionID": 1,
+    "Player1": {
+      "UserID": "eremaggi",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 1,
+        "Name": "Elian"
+      }
+    },
+    "Player2": {
+      "UserID": "lgarcia",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 3,
+        "Name": "Luis"
+      }
+    },
+    "Winner": null,
+    "IsTie": false,
+    "PlayerScore": 0,
+    "OpponentScore": 0
+  },
+  {
+    "SessionID": 2,
+    "Player1": {
+      "UserID": "eremaggi",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 1,
+        "Name": "Elian"
+      }
+    },
+    "Player2": {
+      "UserID": "lgarcia",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 3,
+        "Name": "Luis"
+      }
+    },
+    "Winner": null,
+    "IsTie": false,
+    "PlayerScore": 0,
+    "OpponentScore": 0
+  }
+]

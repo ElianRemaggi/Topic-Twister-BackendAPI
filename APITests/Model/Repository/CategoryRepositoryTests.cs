@@ -5,7 +5,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 
-namespace APITests
+namespace APITests.Repository
 {
     public class CategoryRepositoryTests
     {

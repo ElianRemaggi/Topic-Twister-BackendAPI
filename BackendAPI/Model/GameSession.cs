@@ -11,10 +11,11 @@ public class GameSession
     private int _playerScore = 0;
     private int _opponentScore = 0;
 
-    public GameSession(Player player1, Player player2)
+    public GameSession(Player player1, Player player2,int sessionID)
     {
         _player1 = player1;
         _player2 = player2;
+        _sessionID = sessionID;
     }
 
     public int SessionID { get => _sessionID; set => _sessionID = value; }
