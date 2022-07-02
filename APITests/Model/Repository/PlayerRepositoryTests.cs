@@ -1,4 +1,5 @@
 ﻿using BackendAPI.Modelo.Repository;
+using BackendAPI.Service;
 using NSubstitute;
 using NUnit.Framework;
 using System;
@@ -20,7 +21,7 @@ namespace APITests.Repository
         [SetUp]
         public void Setup()
         {
-            _playerRepository = new PlayerRepository();
+            _playerRepository = new PlayerRepository(PathProvider.GetPlayersJsonPath());
         }
         //
 

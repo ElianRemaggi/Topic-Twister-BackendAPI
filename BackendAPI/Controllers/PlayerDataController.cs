@@ -1,4 +1,5 @@
 ﻿using BackendAPI.Modelo.Repository;
+using BackendAPI.Service;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -12,7 +13,7 @@ namespace BackendAPI.Controllers
         [HttpGet("id")]
         public IActionResult GetPlayerDataByPlayerId(string id)
         {
-            IPlayerRepository playerRepository = new PlayerRepository();
+            IPlayerRepository playerRepository = new PlayerRepository(PathProvider.GetPlayersJsonPath());
             foreach (Player player in playerRepository.GetAllPlayers())
             {
                 if (player.UserID == id)
@@ -35,7 +36,7 @@ namespace BackendAPI.Controllers
                 }
 
                 PlayerData playerData = JsonConvert.DeserializeObject<PlayerData>(parametro.ToString());
-                IPlayerRepository playerRepository = new PlayerRepository();
+                IPlayerRepository playerRepository = new PlayerRepository(PathProvider.GetPlayersJsonPath());
 
                 playerRepository.UpdatePlayerData(id,playerData);
                 //var respuesta = JsonConvert.DeserializeObject(player.ToString());

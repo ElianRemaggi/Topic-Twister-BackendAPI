@@ -47,17 +47,17 @@ public class GameSessionRepository : IGameSessionRepository
         }
     }
 
-    public GameSession GetGameSessionByID(int sessionID)
-    {
-        try
-        {
-            return _gameSessions.FirstOrDefault(q => q.SessionID == sessionID);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.ToString());
-            throw;
-        }
-    }
+    //public GameSession GetGameSessionByID(int sessionID)
+    //{
+    //    try
+    //    {
+    //        return _gameSessions.FirstOrDefault(q => q.SessionID == sessionID);
+    //    }
+    //    catch (Exception e)
+    //    {
+    //        Console.WriteLine(e.ToString());
+    //        throw;
+    //    }
+    //}
 }
 

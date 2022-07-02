@@ -6,22 +6,14 @@ using System.Collections.Generic;
 namespace APITests.UseCases
 
 {
-    public class CreateGameSessionUseCaseTests
+    public class CreateNewRoundUseCaseTests
     {
-        IGameSessionRepository _sessionRepository;
         ICategoryRepository _categoryRepository;
         private List<Category> _mockCategoryList;
-
-        Player _player1;
-        Player _player2;
 
         [SetUp]
         public void Setup()
         {
-            _sessionRepository = Substitute.For<IGameSessionRepository>();
-            _player1 = new Player("eremaggi", new PlayerData(1, "Elian"));
-            _player2 = new Player("lgarcia", new PlayerData(2, "Luis"));
-
             _categoryRepository = Substitute.For<ICategoryRepository>();
             _mockCategoryList = new List<Category>()
                                              { new Category(1,"Países",  new List<string>            {"Alemania", "Argentina", "Angola", "España", "Etiopia", "Eslovaquia", "Japon", "Jamaica", "Jordania", "Oman", "Mexico", "Malasia", "Madagascar" }),
@@ -34,37 +26,42 @@ namespace APITests.UseCases
             _categoryRepository = Substitute.For<ICategoryRepository>();
             _categoryRepository.LoadCategoryList().Returns(_mockCategoryList);
         }
+
         [Test]
-        public void CreateGameSession_Should_Return_A_New_GameSession()
+        public void CreateNewRound_Should_Return_A_New_Round()
         {
             //Arrange
-            CreateGameSessionUseCase createGameSession = new CreateGameSessionUseCase(_sessionRepository, _categoryRepository);
+            CreateNewRoundUseCase createNewRound = new CreateNewRoundUseCase(_categoryRepository);
             //Act
             //Assert
-            Assert.IsInstanceOf<GameSession>(createGameSession.Execute(_player1,_player2));
+            Assert.IsInstanceOf<Round>(createNewRound.Execute(1));
         }
 
         [Test]
-        public void CreateGameSession_Should_Return_A_New_GameSession_With_Last_ID()
+        public void CreateNewRound_Should_Return_A_New_Round_With_The_Given_Round_Number()
         {
             //Arrange
-            _sessionRepository.GetLastSessionId().Returns(2);
-            CreateGameSessionUseCase createGameSession = new CreateGameSessionUseCase(_sessionRepository, _categoryRepository);
+            CreateNewRoundUseCase createNewRound = new CreateNewRoundUseCase(_categoryRepository);
+            int roundNumber = 1;
             //Act
+            Round round = createNewRound.Execute(roundNumber);
             //Assert
-            Assert.AreEqual(3, createGameSession.Execute(_player1, _player2).SessionID);
+            Assert.AreEqual(roundNumber, round.RoundNumber);
         }
 
         [Test]
-        public void CreateGameSession_Should_Create_The_First_Session_Round()
+        public void CreateNewRound_Should_Return_A_New_Round_With_A_List_Of_Categories()
         {
             //Arrange
-            CreateGameSessionUseCase createGameSession = new CreateGameSessionUseCase(_sessionRepository, _categoryRepository);
-            GameSession gameSession = createGameSession.Execute(_player1, _player2);
+            CreateNewRoundUseCase createNewRound = new CreateNewRoundUseCase(_categoryRepository);
+            int roundNumber = 1;
             //Act
+            Round round = createNewRound.Execute(roundNumber);
             //Assert
-            Assert.IsInstanceOf<Round>(gameSession.CurrentRound);
-            Assert.Contains(gameSession.CurrentRound, gameSession.MatchRounds);
+            foreach (var category in _mockCategoryList)
+            {
+                Assert.Contains(category, round.Categories);
+            }
         }
     }
 }

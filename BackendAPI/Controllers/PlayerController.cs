@@ -1,4 +1,5 @@
 ﻿using BackendAPI.Modelo.Repository;
+using BackendAPI.Service;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -16,7 +17,7 @@ namespace BackendAPI.Controllers
         [HttpGet]
         public IActionResult GetAllPlayers()
         {
-            IPlayerRepository playerRepository = new PlayerRepository();
+            IPlayerRepository playerRepository = new PlayerRepository(PathProvider.GetPlayersJsonPath());
             return Ok(JsonConvert.SerializeObject(playerRepository.FindPlayersLookingForMatch()));
             return NotFound("Error ");
         }
@@ -29,7 +30,7 @@ namespace BackendAPI.Controllers
         [HttpGet("id")]
         public IActionResult GetPlayerById(string id)
         {
-            IPlayerRepository playerRepository = new PlayerRepository();
+            IPlayerRepository playerRepository = new PlayerRepository(PathProvider.GetPlayersJsonPath());
             List<Player> Players = playerRepository.GetAllPlayers();
 
             foreach (Player player in Players)
@@ -51,7 +52,7 @@ namespace BackendAPI.Controllers
         [HttpGet]
         public IActionResult GetAllPlayers()
         {
-            IPlayerRepository playerRepository = new PlayerRepository();
+            IPlayerRepository playerRepository = new PlayerRepository(PathProvider.GetPlayersJsonPath());
             return Ok(JsonConvert.SerializeObject(playerRepository.GetAllPlayers()));
             return NotFound("Error ");
         }

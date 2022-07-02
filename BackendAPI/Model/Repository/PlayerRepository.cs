@@ -6,7 +6,7 @@ namespace BackendAPI.Modelo.Repository
     {
         public List<Player> _playerList = new List<Player>();
 
-        public PlayerRepository()
+        public PlayerRepository(string path)
         {
             _playerList = GetPlayerRepository();
         }

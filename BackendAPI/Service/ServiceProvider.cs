@@ -10,19 +10,19 @@ namespace BackendAPI.Service
         ICategoryRepository categoryRepository;
         public Player GetPlayerById(string id)
         {
-            playerRepository = new PlayerRepository();
+            playerRepository = new PlayerRepository(PathProvider.GetPlayersJsonPath());
             return playerRepository.FindPlayerById(id);
         }
 
         public List<Player> FindPlayersLookingForMatch()
         {
-            playerRepository = new PlayerRepository();
+            playerRepository = new PlayerRepository(PathProvider.GetPlayersJsonPath());
             return playerRepository.FindPlayersLookingForMatch();
         }
 
         public List<Player> GetAllPlayers()
         {
-            playerRepository = new PlayerRepository();
+            playerRepository = new PlayerRepository(PathProvider.GetPlayersJsonPath());
             return playerRepository.GetAllPlayers();
         }
 

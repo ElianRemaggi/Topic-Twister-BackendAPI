@@ -17,5 +17,9 @@ namespace BackendAPI.Service
         {
             return @"data\players.json";
         }
+        public static string GetGameSessionJsonPath()
+        {
+            return @"data\gameSessions.json";
+        }
     }
 }

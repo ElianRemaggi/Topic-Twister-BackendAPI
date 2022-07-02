@@ -1,5 +1,6 @@
 ﻿using BackendAPI.Controllers;
 using BackendAPI.Modelo.Repository;
+using BackendAPI.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
@@ -25,7 +26,7 @@ namespace APITests.Controllers
         public void Get_Player_Data_By_Id_Should_Return_200_Status_Code()
         {
             //Arrange
-            IPlayerRepository playerRepository = new PlayerRepository();
+            IPlayerRepository playerRepository = new PlayerRepository(PathProvider.GetPlayersJsonPath());
             Player player;
             //Act
             player = playerRepository.GetAllPlayers().First();
@@ -56,7 +57,7 @@ namespace APITests.Controllers
         public void Get_APlayer_Data_By_Id_Should_Return_200_Status_Code()
         {
             //Arrange
-            IPlayerRepository playerRepository = new PlayerRepository();
+            IPlayerRepository playerRepository = new PlayerRepository(PathProvider.GetPlayersJsonPath());
             Player player;
             //Act
             player = playerRepository.GetAllPlayers().First();
