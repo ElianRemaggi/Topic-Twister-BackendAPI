@@ -7,10 +7,11 @@ public class Round
     private char _roundLetter;
     private int _roundNumber;
 
-    public Round(List<Category> categories, int roundNumber) //Esto hay que eliminarlo
+    public Round(List<Category> categories, int roundNumber, char roundLetter) //Esto hay que eliminarlo
     {
         _categories = categories;
         _roundNumber = roundNumber;
+        _roundLetter = roundLetter;
     }
 
     public List<Category> Categories { get => _categories; set => _categories = value; }

@@ -25,7 +25,8 @@ namespace BackendAPI.Controllers
                 Player opponent = await matchMaking.FindOpponent(playerID);
 
                 CreateGameSessionUseCase createGameSession = new CreateGameSessionUseCase(RepoLocator.GetGameSessionRepo(),
-                                                                                          RepoLocator.GetCategoryRepo());
+                                                                                          RepoLocator.GetCategoryRepo(),
+                                                                                          RepoLocator.GetLetterRepo());
 
                 GameSession gameSession = createGameSession.Execute(RepoLocator.GetPlayerRepo().FindPlayerById(playerID),
                                                                     opponent);

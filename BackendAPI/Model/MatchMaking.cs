@@ -26,7 +26,7 @@ public class MatchMaking
         {
             Player clientPlayer = _playerRepository.FindPlayerById(playerID);
             Player opponentPlayer;
-            _playerRepository.UpdatePlayerLookingForMatch(playerID, true);
+            //_playerRepository.UpdatePlayerLookingForMatch(playerID, true);
             List<Player> playersLookingForMatch = new List<Player>();
 
 
@@ -45,7 +45,7 @@ public class MatchMaking
                 await Task.Delay(_timeStep);
             }
 
-            _playerRepository.UpdatePlayerLookingForMatch(playerID, false);
+            //_playerRepository.UpdatePlayerLookingForMatch(playerID, false);
             throw new Exception("Opponent Not Found");
 
         }
