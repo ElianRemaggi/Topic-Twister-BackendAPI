@@ -8,7 +8,7 @@ public interface IGameSessionRepository
 {
     int GetLastSessionId();
     void SaveGameSession(GameSession gameSession);
-
+    List<GameSession> GetGameSessions();
 
 }
 

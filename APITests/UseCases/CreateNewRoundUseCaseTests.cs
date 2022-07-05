@@ -9,12 +9,14 @@ namespace APITests.UseCases
     public class CreateNewRoundUseCaseTests
     {
         ICategoryRepository _categoryRepository;
+        ILetterRepository _letterRepository;
         private List<Category> _mockCategoryList;
 
         [SetUp]
         public void Setup()
         {
             _categoryRepository = Substitute.For<ICategoryRepository>();
+            _letterRepository = Substitute.For<ILetterRepository>();
             _mockCategoryList = new List<Category>()
                                              { new Category(1,"Países",  new List<string>            {"Alemania", "Argentina", "Angola", "España", "Etiopia", "Eslovaquia", "Japon", "Jamaica", "Jordania", "Oman", "Mexico", "Malasia", "Madagascar" }),
                                                new Category(2,"Nombres", new List<string>            {"Alberto", "Alejandra", "Ana", "Elian", "Esteban", "Emilia", "Jesus", "Juana", "Jessica", "Omar", "Olivia", "Orlando", "Maria", "Manuel", "Marcos"}),
@@ -31,7 +33,7 @@ namespace APITests.UseCases
         public void CreateNewRound_Should_Return_A_New_Round()
         {
             //Arrange
-            CreateNewRoundUseCase createNewRound = new CreateNewRoundUseCase(_categoryRepository);
+            CreateNewRoundUseCase createNewRound = new CreateNewRoundUseCase(_categoryRepository,_letterRepository);
             //Act
             //Assert
             Assert.IsInstanceOf<Round>(createNewRound.Execute(1));
@@ -41,7 +43,7 @@ namespace APITests.UseCases
         public void CreateNewRound_Should_Return_A_New_Round_With_The_Given_Round_Number()
         {
             //Arrange
-            CreateNewRoundUseCase createNewRound = new CreateNewRoundUseCase(_categoryRepository);
+            CreateNewRoundUseCase createNewRound = new CreateNewRoundUseCase(_categoryRepository, _letterRepository);
             int roundNumber = 1;
             //Act
             Round round = createNewRound.Execute(roundNumber);
@@ -53,7 +55,7 @@ namespace APITests.UseCases
         public void CreateNewRound_Should_Return_A_New_Round_With_A_List_Of_Categories()
         {
             //Arrange
-            CreateNewRoundUseCase createNewRound = new CreateNewRoundUseCase(_categoryRepository);
+            CreateNewRoundUseCase createNewRound = new CreateNewRoundUseCase(_categoryRepository, _letterRepository);
             int roundNumber = 1;
             //Act
             Round round = createNewRound.Execute(roundNumber);

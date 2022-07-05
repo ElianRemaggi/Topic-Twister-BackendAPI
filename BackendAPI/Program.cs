@@ -16,6 +16,11 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>((provider) =
     return ActivatorUtilities.CreateInstance<CategoryRepository>(provider, PathProvider.GetCategoryJsonPath());
 });
 
+builder.Services.AddScoped<IGameSessionRepository, GameSessionRepository>((provider) =>
+{
+    return ActivatorUtilities.CreateInstance<GameSessionRepository>(provider, PathProvider.GetGameSessionJsonPath());
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

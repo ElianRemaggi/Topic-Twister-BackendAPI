@@ -22,6 +22,11 @@ public class GameSessionRepository : IGameSessionRepository
             _gameSessions = gameSessions;
     }
 
+    public List<GameSession> GetGameSessions()
+    {
+        return _gameSessions;
+    }
+
     public int GetLastSessionId()
     {
         LoadGameSessionList();

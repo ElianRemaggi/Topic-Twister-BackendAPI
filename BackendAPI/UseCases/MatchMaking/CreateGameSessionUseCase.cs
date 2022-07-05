@@ -24,6 +24,8 @@
             gameSession.CurrentRound = firstRound;
             gameSession.MatchRounds.Add(firstRound);
 
+            _gameSessionRepository.SaveGameSession(gameSession);
+
             return gameSession;
         }
     }
