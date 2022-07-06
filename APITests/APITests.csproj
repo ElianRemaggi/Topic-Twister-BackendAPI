@@ -19,8 +19,4 @@
     <ProjectReference Include="..\BackendAPI\BackendAPI.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

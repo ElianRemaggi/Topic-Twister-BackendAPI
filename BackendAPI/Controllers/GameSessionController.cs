@@ -33,8 +33,6 @@ namespace BackendAPI.Controllers
             {
                 return NotFound($"No GameSessions Found for user {id}");
             }
-
-
         }
     }
 }

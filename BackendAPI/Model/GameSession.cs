@@ -8,8 +8,8 @@ public class GameSession
     private Player _player2;
     private Player _winner;
     private bool _isTie = false;
-    private int _playerScore = 0;
-    private int _opponentScore = 0;
+    private int _player1Score = 0;
+    private int _player2Score = 0;
 
     private Round _currentRound;
     private List<Round> _matchRounds = new List<Round>();
@@ -27,8 +27,8 @@ public class GameSession
     public Player Player2 { get => _player2;}
     public Player Winner { get => _winner; set => _winner = value; }
     public bool IsTie { get => _isTie; set => _isTie = value; }
-    public int PlayerScore { get => _playerScore; set => _playerScore = value; }
-    public int OpponentScore { get => _opponentScore; set => _opponentScore = value; }
+    public int Player1Score { get => _player1Score; set => _player1Score = value; }
+    public int Player2Score { get => _player2Score; set => _player2Score = value; }
     public Round CurrentRound { get => _currentRound; set => _currentRound = value; }
     public List<Round> MatchRounds { get => _matchRounds; set => _matchRounds = value; }
 }

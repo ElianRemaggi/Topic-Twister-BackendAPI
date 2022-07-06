@@ -1,1 +1,158 @@
-[{"SessionID":1,"Player1":{"UserID":"eremaggi","LookingForMatch":true,"PlayerData":{"WinsAmount":16,"Name":"Elian"}},"Player2":{"UserID":"seba","LookingForMatch":true,"PlayerData":{"WinsAmount":12,"Name":"Sebastian!"}},"Winner":null,"IsTie":false,"PlayerScore":0,"OpponentScore":0,"CurrentRound":{"Categories":[{"CategoryName":"Marcas","WordList":["Adidas","Armani","Axe","Epson","Easy","Elephant","Jaguar","Jeep","Jordan","Oxea","Odol","Oreo","Mitsubishi","Michelin","Minolta"],"CategoryID":10},{"CategoryName":"Dioses","WordList":["Afrodita","Ares","Anubis","Eco","Eris","Eros","Jupiter","Jepeto","Juno","Osiris","Orfeo","Olimpo","Marte","Mercurio","Minerva"],"CategoryID":6},{"CategoryName":"Nombres","WordList":["Alberto","Alejandra","Ana","Elian","Esteban","Emilia","Jesus","Juana","Jessica","Omar","Olivia","Orlando","Maria","Manuel","Marcos"],"CategoryID":2},{"CategoryName":"Animales","WordList":["Araña","Avestruz","Aguila","Escarabajo","Elefante","Escorpion","Jabali","Jaguar","Jirafa","Oruga","Oso","Orangutan","Mamut","Mono","Marmota"],"CategoryID":4},{"CategoryName":"Frutas y Verduras","WordList":["Anana","Arandano","Acelga","Espinaca","Elote","Esparragos","Jengibre","Judias","Jitomate","Oliva","Oregano","Ocra","Manzana","Mandarina","Mora"],"CategoryID":9}],"Score":0,"RoundLetter":"E","RoundNumber":1},"MatchRounds":[{"Categories":[{"CategoryName":"Marcas","WordList":["Adidas","Armani","Axe","Epson","Easy","Elephant","Jaguar","Jeep","Jordan","Oxea","Odol","Oreo","Mitsubishi","Michelin","Minolta"],"CategoryID":10},{"CategoryName":"Dioses","WordList":["Afrodita","Ares","Anubis","Eco","Eris","Eros","Jupiter","Jepeto","Juno","Osiris","Orfeo","Olimpo","Marte","Mercurio","Minerva"],"CategoryID":6},{"CategoryName":"Nombres","WordList":["Alberto","Alejandra","Ana","Elian","Esteban","Emilia","Jesus","Juana","Jessica","Omar","Olivia","Orlando","Maria","Manuel","Marcos"],"CategoryID":2},{"CategoryName":"Animales","WordList":["Araña","Avestruz","Aguila","Escarabajo","Elefante","Escorpion","Jabali","Jaguar","Jirafa","Oruga","Oso","Orangutan","Mamut","Mono","Marmota"],"CategoryID":4},{"CategoryName":"Frutas y Verduras","WordList":["Anana","Arandano","Acelga","Espinaca","Elote","Esparragos","Jengibre","Judias","Jitomate","Oliva","Oregano","Ocra","Manzana","Mandarina","Mora"],"CategoryID":9}],"Score":0,"RoundLetter":"E","RoundNumber":1}]}]
+[
+  {
+    "SessionID": 1,
+    "Player1": {
+      "UserID": "seba",
+      "LookingForMatch": true,
+      "PlayerData": {
+        "WinsAmount": 12,
+        "Name": "Sebastian!"
+      }
+    },
+    "Player2": {
+      "UserID": "eremaggi",
+      "LookingForMatch": true,
+      "PlayerData": {
+        "WinsAmount": 16,
+        "Name": "Elian"
+      }
+    },
+    "Winner": null,
+    "IsTie": false,
+    "Player1Score": 0,
+    "Player2Score": 0,
+    "CurrentRound": {
+      "Categories": [
+        {
+          "CategoryName": "Comidas",
+          "WordList": [ "Arroz", "Atun", "Almejas", "Ensalada", "Empanada", "Escabeche", "Jalapeño", "Jamon", "Jardinera", "Orejones", "Olivas", "Omelet", "Milanesa", "Mermelada", "Macarrones" ],
+          "CategoryID": 3
+        },
+        {
+          "CategoryName": "Nombres",
+          "WordList": [ "Alberto", "Alejandra", "Ana", "Elian", "Esteban", "Emilia", "Jesus", "Juana", "Jessica", "Omar", "Olivia", "Orlando", "Maria", "Manuel", "Marcos" ],
+          "CategoryID": 2
+        },
+        {
+          "CategoryName": "Marcas",
+          "WordList": [ "Adidas", "Armani", "Axe", "Epson", "Easy", "Elephant", "Jaguar", "Jeep", "Jordan", "Oxea", "Odol", "Oreo", "Mitsubishi", "Michelin", "Minolta" ],
+          "CategoryID": 10
+        },
+        {
+          "CategoryName": "Dioses",
+          "WordList": [ "Afrodita", "Ares", "Anubis", "Eco", "Eris", "Eros", "Jupiter", "Jepeto", "Juno", "Osiris", "Orfeo", "Olimpo", "Marte", "Mercurio", "Minerva" ],
+          "CategoryID": 6
+        },
+        {
+          "CategoryName": "Frutas y Verduras",
+          "WordList": [ "Anana", "Arandano", "Acelga", "Espinaca", "Elote", "Esparragos", "Jengibre", "Judias", "Jitomate", "Oliva", "Oregano", "Ocra", "Manzana", "Mandarina", "Mora" ],
+          "CategoryID": 9
+        }
+      ],
+      "Score": 0,
+      "RoundLetter": "A",
+      "RoundNumber": 1,
+      "Player1Answers": [
+        {
+          "PlayerAnswer": "Pepe",
+          "Correct": false
+        },
+        {
+          "PlayerAnswer": "Ariel",
+          "Correct": false
+        },
+        {
+          "PlayerAnswer": "A",
+          "Correct": false
+        },
+        {
+          "PlayerAnswer": "Ares",
+          "Correct": true
+        },
+        {
+          "PlayerAnswer": "Arandano",
+          "Correct": true
+        }
+      ],
+      "Player2Answers": []
+    },
+    "MatchRounds": [
+      {
+        "Categories": [
+          {
+            "CategoryName": "Comidas",
+            "WordList": [ "Arroz", "Atun", "Almejas", "Ensalada", "Empanada", "Escabeche", "Jalapeño", "Jamon", "Jardinera", "Orejones", "Olivas", "Omelet", "Milanesa", "Mermelada", "Macarrones" ],
+            "CategoryID": 3
+          },
+          {
+            "CategoryName": "Nombres",
+            "WordList": [ "Alberto", "Alejandra", "Ana", "Elian", "Esteban", "Emilia", "Jesus", "Juana", "Jessica", "Omar", "Olivia", "Orlando", "Maria", "Manuel", "Marcos" ],
+            "CategoryID": 2
+          },
+          {
+            "CategoryName": "Marcas",
+            "WordList": [ "Adidas", "Armani", "Axe", "Epson", "Easy", "Elephant", "Jaguar", "Jeep", "Jordan", "Oxea", "Odol", "Oreo", "Mitsubishi", "Michelin", "Minolta" ],
+            "CategoryID": 10
+          },
+          {
+            "CategoryName": "Dioses",
+            "WordList": [ "Afrodita", "Ares", "Anubis", "Eco", "Eris", "Eros", "Jupiter", "Jepeto", "Juno", "Osiris", "Orfeo", "Olimpo", "Marte", "Mercurio", "Minerva" ],
+            "CategoryID": 6
+          },
+          {
+            "CategoryName": "Frutas y Verduras",
+            "WordList": [ "Anana", "Arandano", "Acelga", "Espinaca", "Elote", "Esparragos", "Jengibre", "Judias", "Jitomate", "Oliva", "Oregano", "Ocra", "Manzana", "Mandarina", "Mora" ],
+            "CategoryID": 9
+          }
+        ],
+        "Score": 0,
+        "RoundLetter": "A",
+        "RoundNumber": 1,
+        "Player1Answers": [
+          {
+            "PlayerAnswer": "Pepe",
+            "Correct": false
+          },
+          {
+            "PlayerAnswer": "Ariel",
+            "Correct": false
+          },
+          {
+            "PlayerAnswer": "A",
+            "Correct": false
+          },
+          {
+            "PlayerAnswer": "Ares",
+            "Correct": true
+          },
+          {
+            "PlayerAnswer": "Arandano",
+            "Correct": true
+          }
+        ],
+        "Player2Answers": [
+          {
+            "PlayerAnswer": "Anana",
+            "Correct": false
+          },
+          {
+            "PlayerAnswer": "Anibal",
+            "Correct": false
+          },
+          {
+            "PlayerAnswer": "Aston Martin",
+            "Correct": false
+          },
+          {
+            "PlayerAnswer": "Ares",
+            "Correct": true
+          },
+          {
+            "PlayerAnswer": "Anana",
+            "Correct": true
+          }
+        ]
+      }
+    ]
+  }
+]

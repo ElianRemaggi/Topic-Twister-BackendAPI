@@ -9,7 +9,8 @@ public interface IGameSessionRepository
     int GetLastSessionId();
     void SaveGameSession(GameSession gameSession);
     List<GameSession> GetGameSessions();
-
+    void UpdateAnswers(string userID, int sessionID, List<Answer> playerAnswers);
+    GameSession GetGameSessionByID(int id);
 }
 
 

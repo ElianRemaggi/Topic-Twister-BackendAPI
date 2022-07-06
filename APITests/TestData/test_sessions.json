@@ -19,8 +19,8 @@
     },
     "Winner": null,
     "IsTie": false,
-    "PlayerScore": 0,
-    "OpponentScore": 0,
+    "Player1Score": 0,
+    "Player2Score": 0,
     "CurrentRound": {
       "Categories": [
         {
@@ -51,7 +51,9 @@
       ],
       "Score": 0,
       "RoundLetter": "M",
-      "RoundNumber": 1
+      "RoundNumber": 1,
+      "Player1Answers": [],
+      "Player2Answers": []
     },
     "MatchRounds": [
       {
@@ -84,7 +86,9 @@
         ],
         "Score": 0,
         "RoundLetter": "M",
-        "RoundNumber": 1
+        "RoundNumber": 1,
+        "Player1Answers": [],
+        "Player2Answers": []
       }
     ]
   },
@@ -108,8 +112,8 @@
     },
     "Winner": null,
     "IsTie": false,
-    "PlayerScore": 0,
-    "OpponentScore": 0,
+    "Player1Score": 0,
+    "Player2Score": 0,
     "CurrentRound": {
       "Categories": [
         {
@@ -140,7 +144,9 @@
       ],
       "Score": 0,
       "RoundLetter": "M",
-      "RoundNumber": 1
+      "RoundNumber": 1,
+      "Player1Answers": [],
+      "Player2Answers": []
     },
     "MatchRounds": [
       {
@@ -173,7 +179,583 @@
         ],
         "Score": 0,
         "RoundLetter": "M",
-        "RoundNumber": 1
+        "RoundNumber": 1,
+        "Player1Answers": [],
+        "Player2Answers": []
+      }
+    ]
+  },
+  {
+    "SessionID": 3,
+    "Player1": {
+      "UserID": "eremaggi",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 1,
+        "Name": "Elian"
+      }
+    },
+    "Player2": {
+      "UserID": "lgarcia",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 3,
+        "Name": "Luis"
+      }
+    },
+    "Winner": null,
+    "IsTie": false,
+    "Player1Score": 0,
+    "Player2Score": 0,
+    "CurrentRound": null,
+    "MatchRounds": []
+  },
+  {
+    "SessionID": 4,
+    "Player1": {
+      "UserID": "eremaggi",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 1,
+        "Name": "Elian"
+      }
+    },
+    "Player2": {
+      "UserID": "lgarcia",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 3,
+        "Name": "Luis"
+      }
+    },
+    "Winner": null,
+    "IsTie": false,
+    "Player1Score": 0,
+    "Player2Score": 0,
+    "CurrentRound": {
+      "Categories": [
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        }
+      ],
+      "Score": 0,
+      "RoundLetter": "A",
+      "RoundNumber": 1,
+      "Player1Answers": [],
+      "Player2Answers": []
+    },
+    "MatchRounds": [
+      {
+        "Categories": [
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          }
+        ],
+        "Score": 0,
+        "RoundLetter": "A",
+        "RoundNumber": 1,
+        "Player1Answers": [],
+        "Player2Answers": []
+      }
+    ]
+  },
+  {
+    "SessionID": 5,
+    "Player1": {
+      "UserID": "eremaggi",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 1,
+        "Name": "Elian"
+      }
+    },
+    "Player2": {
+      "UserID": "lgarcia",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 3,
+        "Name": "Luis"
+      }
+    },
+    "Winner": null,
+    "IsTie": false,
+    "Player1Score": 0,
+    "Player2Score": 0,
+    "CurrentRound": {
+      "Categories": [
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        }
+      ],
+      "Score": 0,
+      "RoundLetter": "A",
+      "RoundNumber": 1,
+      "Player1Answers": [],
+      "Player2Answers": []
+    },
+    "MatchRounds": [
+      {
+        "Categories": [
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          }
+        ],
+        "Score": 0,
+        "RoundLetter": "A",
+        "RoundNumber": 1,
+        "Player1Answers": [],
+        "Player2Answers": []
+      }
+    ]
+  },
+  {
+    "SessionID": 6,
+    "Player1": {
+      "UserID": "eremaggi",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 1,
+        "Name": "Elian"
+      }
+    },
+    "Player2": {
+      "UserID": "lgarcia",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 3,
+        "Name": "Luis"
+      }
+    },
+    "Winner": null,
+    "IsTie": false,
+    "Player1Score": 0,
+    "Player2Score": 0,
+    "CurrentRound": {
+      "Categories": [
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        }
+      ],
+      "Score": 0,
+      "RoundLetter": "A",
+      "RoundNumber": 1,
+      "Player1Answers": [],
+      "Player2Answers": []
+    },
+    "MatchRounds": [
+      {
+        "Categories": [
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          }
+        ],
+        "Score": 0,
+        "RoundLetter": "A",
+        "RoundNumber": 1,
+        "Player1Answers": [],
+        "Player2Answers": []
+      }
+    ]
+  },
+  {
+    "SessionID": 7,
+    "Player1": {
+      "UserID": "eremaggi",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 1,
+        "Name": "Elian"
+      }
+    },
+    "Player2": {
+      "UserID": "lgarcia",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 3,
+        "Name": "Luis"
+      }
+    },
+    "Winner": null,
+    "IsTie": false,
+    "Player1Score": 0,
+    "Player2Score": 0,
+    "CurrentRound": {
+      "Categories": [
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        }
+      ],
+      "Score": 0,
+      "RoundLetter": "A",
+      "RoundNumber": 1,
+      "Player1Answers": [
+        {
+          "PlayerAnswer": "Answer1",
+          "Correct": false
+        },
+        {
+          "PlayerAnswer": "Answer2",
+          "Correct": false
+        },
+        {
+          "PlayerAnswer": "Answer3",
+          "Correct": false
+        },
+        {
+          "PlayerAnswer": "Answer4",
+          "Correct": false
+        },
+        {
+          "PlayerAnswer": "Answer5",
+          "Correct": false
+        }
+      ],
+      "Player2Answers": []
+    },
+    "MatchRounds": [
+      {
+        "Categories": [
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          }
+        ],
+        "Score": 0,
+        "RoundLetter": "A",
+        "RoundNumber": 1,
+        "Player1Answers": [
+          {
+            "PlayerAnswer": "Answer1",
+            "Correct": false
+          },
+          {
+            "PlayerAnswer": "Answer2",
+            "Correct": false
+          },
+          {
+            "PlayerAnswer": "Answer3",
+            "Correct": false
+          },
+          {
+            "PlayerAnswer": "Answer4",
+            "Correct": false
+          },
+          {
+            "PlayerAnswer": "Answer5",
+            "Correct": false
+          }
+        ],
+        "Player2Answers": []
+      }
+    ]
+  },
+  {
+    "SessionID": 8,
+    "Player1": {
+      "UserID": "eremaggi",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 1,
+        "Name": "Elian"
+      }
+    },
+    "Player2": {
+      "UserID": "lgarcia",
+      "LookingForMatch": false,
+      "PlayerData": {
+        "WinsAmount": 3,
+        "Name": "Luis"
+      }
+    },
+    "Winner": null,
+    "IsTie": false,
+    "Player1Score": 0,
+    "Player2Score": 0,
+    "CurrentRound": {
+      "Categories": [
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        },
+        {
+          "CategoryName": "TestCategory",
+          "WordList": [ "Answer" ],
+          "CategoryID": 1
+        }
+      ],
+      "Score": 0,
+      "RoundLetter": "A",
+      "RoundNumber": 1,
+      "Player1Answers": [
+        {
+          "PlayerAnswer": "Answer1",
+          "Correct": false
+        },
+        {
+          "PlayerAnswer": "Answer2",
+          "Correct": false
+        },
+        {
+          "PlayerAnswer": "Answer3",
+          "Correct": false
+        },
+        {
+          "PlayerAnswer": "Answer4",
+          "Correct": false
+        },
+        {
+          "PlayerAnswer": "Answer5",
+          "Correct": false
+        }
+      ],
+      "Player2Answers": []
+    },
+    "MatchRounds": [
+      {
+        "Categories": [
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          },
+          {
+            "CategoryName": "TestCategory",
+            "WordList": [ "Answer" ],
+            "CategoryID": 1
+          }
+        ],
+        "Score": 0,
+        "RoundLetter": "A",
+        "RoundNumber": 1,
+        "Player1Answers": [
+          {
+            "PlayerAnswer": "Answer1",
+            "Correct": false
+          },
+          {
+            "PlayerAnswer": "Answer2",
+            "Correct": false
+          },
+          {
+            "PlayerAnswer": "Answer3",
+            "Correct": false
+          },
+          {
+            "PlayerAnswer": "Answer4",
+            "Correct": false
+          },
+          {
+            "PlayerAnswer": "Answer5",
+            "Correct": false
+          }
+        ],
+        "Player2Answers": []
       }
     ]
   }
