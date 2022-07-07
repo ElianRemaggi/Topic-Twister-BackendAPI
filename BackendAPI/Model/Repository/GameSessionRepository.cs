@@ -56,6 +56,8 @@ public class GameSessionRepository : IGameSessionRepository
     {
         try
         {
+            //Set Answers
+
             GameSession gameSession = GetGameSessionByID(sessionID);
             int currentRoundIndex = gameSession.CurrentRound.RoundNumber - 1;
             int sessionIndex = _gameSessions.IndexOf(gameSession);
@@ -70,6 +72,54 @@ public class GameSessionRepository : IGameSessionRepository
                 gameSession.MatchRounds[currentRoundIndex].Player2Answers = playerAnswers;
                 gameSession.CurrentRound.Player2Answers = playerAnswers;
             }
+
+            //Set Scores
+
+            bool answerStatus;
+            int categoryIndex = 0;
+
+            foreach (Answer answer in playerAnswers)
+            {
+                ValidateAnswerUseCase validateAnswer = new ValidateAnswerUseCase(answer.PlayerAnswer, gameSession.CurrentRound.Categories[categoryIndex]);
+                answerStatus = validateAnswer.Execute();
+
+                if (gameSession.Player1.UserID == userID)
+                    gameSession.CurrentRound.Player1Answers[categoryIndex].Correct = answerStatus;
+                if (gameSession.Player2.UserID == userID)
+                    gameSession.CurrentRound.Player2Answers[categoryIndex].Correct = answerStatus;
+
+                if (answerStatus)
+                {
+                    if (gameSession.Player1.UserID == userID)
+                        gameSession.CurrentRound.Player1Score++;
+                    if (gameSession.Player2.UserID == userID)
+                        gameSession.CurrentRound.Player2Score++;
+                }
+                categoryIndex++;
+            }
+
+            //Update Session Scores
+
+            if (gameSession.CurrentRound.Player1Answers.Count != 0 && gameSession.CurrentRound.Player2Answers.Count != 0)
+            {
+                int playerRoundScore = gameSession.CurrentRound.Player1Score;
+                int opponentRoundScore = gameSession.CurrentRound.Player2Score;
+
+                if (playerRoundScore > opponentRoundScore)
+                {
+                    gameSession.Player1Score++;
+                }
+                else if (playerRoundScore < opponentRoundScore)
+                {
+                    gameSession.Player2Score++;
+                }
+                else
+                {
+                    gameSession.Player1Score++;
+                    gameSession.Player2Score++;
+                }
+            }
+
 
             _gameSessions[sessionIndex] = gameSession;
 

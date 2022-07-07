@@ -27,23 +27,28 @@ namespace BackendAPI.Controllers
 
 
 
+                GameSession currentSession = RepoLocator.GetGameSessionRepo().GetGameSessionByID(sessionID);
+
+                //Obtener Respuestas para devolver
+                List<Answer> validatedAnswers = new List<Answer>();
+
+                if (currentSession.Player1.UserID == userID)
+                    validatedAnswers = currentSession.CurrentRound.Player1Answers;
+                else if (currentSession.Player2.UserID == userID)
+                    validatedAnswers = currentSession.CurrentRound.Player2Answers;
+                //Obtener Respuestas para devolver
 
                 //Caso de uso setear current Round
-                GameSession currentSession = RepoLocator.GetGameSessionRepo().GetGameSessionByID(sessionID);
-                if (currentSession.CurrentRound.Player1Answers.Count != 0 &&
-currentSession.CurrentRound.Player2Answers.Count != 0)
-                {
-
-                }
                 if (currentSession.CurrentRound.Player1Answers.Count != 0 &&
                     currentSession.CurrentRound.Player2Answers.Count != 0 &&
                     currentSession.CurrentRound.RoundNumber < 3)
                     currentSession.CurrentRound = currentSession.MatchRounds[currentSession.CurrentRound.RoundNumber];
-
-                RepoLocator.GetGameSessionRepo().UpdateGameSession(currentSession);
                 //Caso de uso setear current Round
 
-                return Ok("");
+                RepoLocator.GetGameSessionRepo().UpdateGameSession(currentSession);
+
+
+                return Ok(JsonConvert.SerializeObject(validatedAnswers));
             }
             catch (Exception e)
             {
