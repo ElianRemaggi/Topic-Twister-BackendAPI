@@ -19,10 +19,11 @@
             
             GameSession gameSession = new GameSession(player1, player2, newSessionId);
 
-            Round firstRound = new CreateNewRoundUseCase(_categoryRepository, _letterRepository).Execute(1);
+            gameSession.MatchRounds.Add(new CreateNewRoundUseCase(_categoryRepository, _letterRepository).Execute(1));
+            gameSession.MatchRounds.Add(new CreateNewRoundUseCase(_categoryRepository, _letterRepository).Execute(2));
+            gameSession.MatchRounds.Add(new CreateNewRoundUseCase(_categoryRepository, _letterRepository).Execute(3));
 
-            gameSession.CurrentRound = firstRound;
-            gameSession.MatchRounds.Add(firstRound);
+            gameSession.CurrentRound = gameSession.MatchRounds[0];
 
             _gameSessionRepository.SaveGameSession(gameSession);
 

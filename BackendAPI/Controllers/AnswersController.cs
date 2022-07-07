@@ -19,13 +19,29 @@ namespace BackendAPI.Controllers
                 {
                     Exception e = new Exception("userID null or empty");
                 }
-              
+
                 List<Answer> playerAnswers = JsonConvert.DeserializeObject<List<Answer>>(parameters.ToString());
 
-                //Caso de uso UpdatePlayerAnswers
-
                 UpdatePlayerAnswersUseCase update = new UpdatePlayerAnswersUseCase(RepoLocator.GetGameSessionRepo());
-                update.Execute(userID,sessionID, playerAnswers);
+                update.Execute(userID, sessionID, playerAnswers);
+
+
+
+
+                //Caso de uso setear current Round
+                GameSession currentSession = RepoLocator.GetGameSessionRepo().GetGameSessionByID(sessionID);
+                if (currentSession.CurrentRound.Player1Answers.Count != 0 &&
+currentSession.CurrentRound.Player2Answers.Count != 0)
+                {
+
+                }
+                if (currentSession.CurrentRound.Player1Answers.Count != 0 &&
+                    currentSession.CurrentRound.Player2Answers.Count != 0 &&
+                    currentSession.CurrentRound.RoundNumber < 3)
+                    currentSession.CurrentRound = currentSession.MatchRounds[currentSession.CurrentRound.RoundNumber];
+
+                RepoLocator.GetGameSessionRepo().UpdateGameSession(currentSession);
+                //Caso de uso setear current Round
 
                 return Ok("");
             }

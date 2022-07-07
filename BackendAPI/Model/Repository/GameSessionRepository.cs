@@ -57,13 +57,19 @@ public class GameSessionRepository : IGameSessionRepository
         try
         {
             GameSession gameSession = GetGameSessionByID(sessionID);
-            int lastRoundIndex = gameSession.MatchRounds.Count - 1;
+            int currentRoundIndex = gameSession.CurrentRound.RoundNumber - 1;
             int sessionIndex = _gameSessions.IndexOf(gameSession);
 
             if (gameSession.Player1.UserID == userID)
-                gameSession.MatchRounds[lastRoundIndex].Player1Answers = playerAnswers;
+            {
+                gameSession.MatchRounds[currentRoundIndex].Player1Answers = playerAnswers;
+                gameSession.CurrentRound.Player1Answers = playerAnswers;
+            }
             else if (gameSession.Player2.UserID == userID)
-                gameSession.MatchRounds[lastRoundIndex].Player2Answers = playerAnswers;
+            {
+                gameSession.MatchRounds[currentRoundIndex].Player2Answers = playerAnswers;
+                gameSession.CurrentRound.Player2Answers = playerAnswers;
+            }
 
             _gameSessions[sessionIndex] = gameSession;
 
@@ -87,6 +93,24 @@ public class GameSessionRepository : IGameSessionRepository
         {
 
             throw new Exception($"GetGameSessionByID {e.Message}");
+        }
+    }
+
+    public void UpdateGameSession(GameSession gameSession)
+    {
+        try
+        {
+            GameSession oldGameSession = GetGameSessionByID(gameSession.SessionID);
+            _gameSessions.Remove(oldGameSession);
+            _gameSessions.Add(gameSession);
+
+            string json = JsonConvert.SerializeObject(_gameSessions);
+            System.IO.File.WriteAllText(_path, json);
+        }
+        catch (Exception e)
+        {
+
+            throw new Exception($"UpdateGameSession {e.Message}");
         }
     }
 

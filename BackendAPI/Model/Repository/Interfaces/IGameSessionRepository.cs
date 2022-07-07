@@ -11,6 +11,7 @@ public interface IGameSessionRepository
     List<GameSession> GetGameSessions();
     void UpdateAnswers(string userID, int sessionID, List<Answer> playerAnswers);
     GameSession GetGameSessionByID(int id);
+    void UpdateGameSession(GameSession gameSession);
 }
 
 
