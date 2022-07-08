@@ -50,11 +50,13 @@ namespace BackendAPI.Controllers
                 //Caso de uso setear current Round
 
                 //Caso de uso, actualizar Cantidad de Wins
-                else
+                if (currentSession.CurrentRound.Player1Answers.Count != 0 &&
+                     currentSession.CurrentRound.Player2Answers.Count != 0 &&
+                     currentSession.CurrentRound.RoundNumber == 3)
                 {
                     IPlayerRepository playerRepository = new PlayerRepository(PathProvider.GetPlayersJsonPath());
                     
-                    if (currentSession.Winner == currentSession.Player1)
+                    if (currentSession.Winner.UserID == currentSession.Player1.UserID)
                         playerRepository.UpdatePlayerData(currentSession.Player1.UserID, currentSession.Player1.PlayerData);
                     else
                         playerRepository.UpdatePlayerData(currentSession.Player2.UserID, currentSession.Player2.PlayerData);
