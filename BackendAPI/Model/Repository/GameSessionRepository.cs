@@ -118,8 +118,27 @@ public class GameSessionRepository : IGameSessionRepository
                     gameSession.Player1Score++;
                     gameSession.Player2Score++;
                 }
+
+                //Update Winner
+                if (gameSession.CurrentRound.RoundNumber == 3)
+                {
+                    if (gameSession.Player1Score == gameSession.Player2Score)
+                        gameSession.IsTie = true;
+
+                    if (gameSession.Player1Score > gameSession.Player2Score)
+                    {
+                        gameSession.Player1.PlayerData.WinsAmount++;
+                        gameSession.Winner = gameSession.Player1;
+                    }
+                    else
+                    {
+                        gameSession.Player2.PlayerData.WinsAmount++;
+                        gameSession.Winner = gameSession.Player2;
+                    }
+                }
             }
 
+            gameSession.MatchRounds[currentRoundIndex] = gameSession.CurrentRound;
 
             _gameSessions[sessionIndex] = gameSession;
 
