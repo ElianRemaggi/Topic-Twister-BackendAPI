@@ -33,6 +33,8 @@ public class GameSessionRepository : IGameSessionRepository
         if (_gameSessions == null)
             return 0;
         else
+            int maxId = 0;
+            foreach()
             return _gameSessions.Count();
     }
 
