@@ -30,7 +30,6 @@ namespace BackendAPI.Controllers
                 return NotFound("error categorys");
             }
 
-
         }
     }
 }

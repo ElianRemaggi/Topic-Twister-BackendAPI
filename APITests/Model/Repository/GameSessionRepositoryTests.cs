@@ -52,8 +52,8 @@ namespace APITests.Repository
         public void UpdateAnswers_Should_Fill_Answer_List_For_Given_UserId_And_Session_ID()
         {
             //Arrange
-            
             _sessionRepository = new GameSessionRepository(@"C:\Users\Elian\Desktop\Workstation\Topic-Twister-BackendAPI\APITests\TestData\test_sessions.json");
+            
             //Act
             int lastSessionIdBeforeSave = _sessionRepository.GetLastSessionId();
             int newSessionId = lastSessionIdBeforeSave + 1;

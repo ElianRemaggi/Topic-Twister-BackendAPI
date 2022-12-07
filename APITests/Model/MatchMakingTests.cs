@@ -112,34 +112,23 @@ namespace ModelTests
         }
 
         [Test]
-        public async Task When_Opponent_Looks_For_Match_Set_Looking_For_Match_True()
+        public async Task If_Player_Looking_For_Match_Should_Find_Another_Player_More_Than_10_Victories()
         {
             //Arrange
-            _playersLookingForMatch = new List<Player> { _playerOne , _playerTwo};
-            _playerRepository.FindPlayerById(_playerOne.UserID).Returns(_playerOne);
-            _playerRepository.FindPlayersLookingForMatch().Returns(new List<Player> { _playerOne, _playerSix, _playerFour });
+            _playersLookingForMatch = new List<Player> { _playerOne, _playerTwo };
+            _playerRepository.FindPlayerById("eremaggi").Returns(_playerOne);
+            _playerRepository.FindPlayersLookingForMatch().Returns(_playersLookingForMatch);
+
             MatchMaking matchMaking = new MatchMaking(_playerRepository);
-            //Act
-            await matchMaking.FindOpponent(_playerOne.UserID);
+            Player opponentPlayer;
+
+            //Act 
+            opponentPlayer = await matchMaking.FindOpponent(_playerOne.UserID);
 
             //Assert
-            _playerRepository.Received().UpdatePlayerLookingForMatch(_playerOne.UserID, true);
+            Assert.AreEqual(_playerTwo, opponentPlayer);
         }
 
-        [Test]
-        public async Task When_Opponent_Fails_To_Find_Match_Set_Looking_For_Match_False()
-        {
-            //Arrange
-            _playersLookingForMatch = new List<Player> { _playerOne };
-            _playerRepository.FindPlayerById(_playerOne.UserID).Returns(_playerOne);
-            _playerRepository.FindPlayersLookingForMatch().Returns(new List<Player> {_playerOne}); //Este Returns funciona una sola vez, despues ya no funciona
-            MatchMaking matchMaking = new MatchMaking(_playerRepository);
-            //Act
-            //Assert
-            var exception = Assert.ThrowsAsync<Exception>(async () => await matchMaking.FindOpponent(_playerOne.UserID));
-            Assert.AreEqual(exception.Message, "Sequence contains no matching element");
-            _playerRepository.Received().UpdatePlayerLookingForMatch(_playerOne.UserID, false);
-        }
 
         [Test]
         public async Task When_Opponent_Looks_For_Match_And_Fails_Return_TimeOut()
