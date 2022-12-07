@@ -38,7 +38,7 @@ namespace APITests.Repository
         public void SaveGameSession_Should_Add_GameSession_To_GameSessionList()
         {
             //Arrange
-            _sessionRepository = new GameSessionRepository(@"C:\Proyectos_Unity\Topic-Twister-BackendAPI\APITests\TestData\test_sessions.json");
+            _sessionRepository = new GameSessionRepository(@"C:\Users\Elian\Desktop\Workstation\Topic-Twister-BackendAPI\APITests\TestData\test_sessions.json");
             //Act
             int lastSessionIdBeforeSave = _sessionRepository.GetLastSessionId();
             int newSessionId = lastSessionIdBeforeSave + 1;
@@ -53,7 +53,7 @@ namespace APITests.Repository
         {
             //Arrange
             
-            _sessionRepository = new GameSessionRepository(@"C:\Proyectos_Unity\Topic-Twister-BackendAPI\APITests\TestData\test_sessions.json");
+            _sessionRepository = new GameSessionRepository(@"C:\Users\Elian\Desktop\Workstation\Topic-Twister-BackendAPI\APITests\TestData\test_sessions.json");
             //Act
             int lastSessionIdBeforeSave = _sessionRepository.GetLastSessionId();
             int newSessionId = lastSessionIdBeforeSave + 1;
@@ -75,7 +75,7 @@ namespace APITests.Repository
         public void GetGameSessionByID_Should_Return_Corresponding_GameSession()
         {
             //Arrange
-            _sessionRepository = new GameSessionRepository(@"C:\Proyectos_Unity\Topic-Twister-BackendAPI\APITests\TestData\test_sessions.json");
+            _sessionRepository = new GameSessionRepository(@"C:\Users\Elian\Desktop\Workstation\Topic-Twister-BackendAPI\APITests\TestData\test_sessions.json");
             //Act
             int lastSessionIdBeforeSave = _sessionRepository.GetLastSessionId();
             int newSessionId = lastSessionIdBeforeSave + 1;

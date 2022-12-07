@@ -37,7 +37,7 @@ namespace BackendAPI.Controllers
             {
                 if (player.UserID == id)
                 {
-                    return Ok(JsonConvert.SerializeObject(player)); // Forma correcta de formatear JSON
+                    return Ok(JsonConvert.SerializeObject(player));
                 }
             }
             return NotFound("No existe Usuario con id " + id);

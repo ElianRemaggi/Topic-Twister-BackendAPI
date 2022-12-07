@@ -33,18 +33,9 @@ namespace APITests.Repository
             ICategoryRepository categoryRepository;
             categoryRepository = new CategoryRepository(PathProvider.GetCategoryJsonPath());
             List<Category> FullList = categoryRepository.LoadCategoryList();
-            //Act
-            Category result = categoryRepository.FindCategoryById(4);
-
-
             //Assert
-            foreach (var item in FullList)
-            {
-                if (result.CategoryID == item.CategoryID)
-                {
-                    Assert.AreEqual(result.CategoryID, item.CategoryID);
-                }
-            }
+
+            Assert.Throws<Exception>(() => categoryRepository.FindCategoryById(4));
 
         }
 

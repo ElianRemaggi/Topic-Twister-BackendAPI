@@ -18,7 +18,7 @@ namespace BackendAPI.Controllers
             {
                 if (player.UserID == id)
                 {
-                    return Ok(JsonConvert.SerializeObject(player.PlayerData)); // Forma correcta de formatear JSON
+                    return Ok(JsonConvert.SerializeObject(player.PlayerData));
                 }
             }
             return NotFound("No existe Usuario con id " + id);
@@ -39,7 +39,6 @@ namespace BackendAPI.Controllers
                 IPlayerRepository playerRepository = new PlayerRepository(PathProvider.GetPlayersJsonPath());
 
                 playerRepository.UpdatePlayerData(id,playerData);
-                //var respuesta = JsonConvert.DeserializeObject(player.ToString());
                 return Ok("");
             }
             catch (Exception e)
